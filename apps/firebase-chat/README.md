@@ -1,0 +1,22 @@
+# Firebase Chat Demo
+
+This one uses the stack i prefer for Vue 3 apps.
+
+Todo:
+
+[ ] Vue
+  [ ] Router
+  [ ] App State
+[ ] Vite
+  [ ] Layouts support
+  [ ] Auto imports
+[ ] UI Library
+  [ ] Probably Quasar
+  [ ] Add Uno.css or Windi
+[ ] Firebase
+  [ ] Libraries
+  [ ] Dev environment
+  [ ] Vue Support
+  [ ] Services
+  [ ] Models
+[ ] Type Checking
