@@ -5,8 +5,10 @@ This one uses the stack i prefer for Vue 3 apps.
 Todo:
 
 [ ] Vue
-  [ ] Router
-  [ ] App State
+  [x] Router
+    [x] File based routing
+  [x] App State
+    [ ] Persisted State
 [ ] Vite
   [ ] Layouts support
   [ ] Auto imports
