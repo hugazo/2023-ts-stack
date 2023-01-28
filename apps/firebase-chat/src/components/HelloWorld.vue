@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import useCounterStore from '../store/counter';
 
+const store = useCounterStore();
 defineProps<{ msg: string }>();
 
-const count = ref(0);
+
 </script>
 
 <template>
@@ -12,9 +14,9 @@ const count = ref(0);
   <div class="card">
     <button
       type="button"
-      @click="count++"
+      @click="store.sum"
     >
-      count is {{ count }}
+      count is {{ store.counter }} 🍍
     </button>
     <p>
       Edit
