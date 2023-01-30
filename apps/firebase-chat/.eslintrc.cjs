@@ -10,6 +10,7 @@ module.exports = {
     'import/no-extraneous-dependencies': 0,
     '@typescript-eslint/naming-convention': 0,
     'import/extensions': 0,
+    'vue/multi-word-component-names': 0,
   },
   overrides: [
     {
