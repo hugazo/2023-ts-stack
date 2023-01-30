@@ -9,8 +9,9 @@ Todo:
     [x] File based routing
   [x] App State
     [ ] Persisted State
-[ ] Vite
-  [ ] Layouts support
+[x] Vite
+  [x] Pages support
+  [x] Layouts support
   [ ] Auto imports
 [ ] UI Library
   [ ] Probably Quasar
