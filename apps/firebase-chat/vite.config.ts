@@ -5,6 +5,13 @@ import Layouts from 'vite-plugin-vue-layouts';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  resolve: {
+    alias: {
+      '@': '/src',
+      '@store': '/src/store',
+      '@components': '/src/components',
+    },
+  },
   plugins: [
     Vue(),
     Pages(),
