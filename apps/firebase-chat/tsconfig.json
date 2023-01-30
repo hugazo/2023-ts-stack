@@ -12,6 +12,17 @@
     "lib": ["ESNext", "DOM"],
     "skipLibCheck": true,
     "baseUrl": "./",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ],
+      "@store/*": [
+        "./src/store/*"
+      ],
+      "@components/*": [
+        "./src/components/*"
+      ],
+    },
     "noEmit": true
   },
   "include": [
