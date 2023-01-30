@@ -14,4 +14,6 @@ export default defineStore('counter', () => {
     sum,
     substract,
   };
+}, {
+  persist: true,
 });
