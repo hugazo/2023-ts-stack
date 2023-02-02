@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite';
+import { quasar, transformAssetUrls } from '@quasar/vite-plugin';
 import Vue from '@vitejs/plugin-vue';
 import Pages from 'vite-plugin-pages';
 import Layouts from 'vite-plugin-vue-layouts';
@@ -13,7 +14,12 @@ export default defineConfig({
     },
   },
   plugins: [
-    Vue(),
+    Vue({
+      template: { transformAssetUrls },
+    }),
+    quasar({
+      sassVariables: 'src/quasar-variables.sass',
+    }),
     Pages(),
     Layouts(),
   ],
