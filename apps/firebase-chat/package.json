@@ -12,6 +12,7 @@
     "@quasar/extras": "^1.15.10",
     "pinia": "^2.0.29",
     "pinia-plugin-persistedstate": "^3.0.2",
+    "pug": "^3.0.2",
     "quasar": "^2.11.5",
     "vite-plugin-vue-layouts": "^0.7.0",
     "vue": "^3.2.45",
