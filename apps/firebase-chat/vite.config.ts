@@ -11,6 +11,7 @@ export default defineConfig({
       '@': '/src',
       '@store': '/src/store',
       '@components': '/src/components',
+      '@services': '/src/services',
     },
   },
   plugins: [
@@ -22,6 +23,9 @@ export default defineConfig({
     }),
     Pages(),
     Layouts(),
+  ],
+  envPrefix: [
+    'FIREBASE_',
   ],
   server: {
     port: 3000,
