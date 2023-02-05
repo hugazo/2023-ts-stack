@@ -1,5 +1,8 @@
 // Vue main app
 import { createApp } from 'vue';
+// Firebase plugin
+import { VueFire, VueFireAuth } from 'vuefire';
+import firebaseApp from '@services/firebase';
 // State management
 import { createPinia } from 'pinia';
 import piniaPluginPersistedState from 'pinia-plugin-persistedstate';
@@ -16,6 +19,13 @@ import generatedRoutes from '~pages';
 import App from './App.vue';
 
 const app = createApp(App);
+
+app.use(VueFire, {
+  firebaseApp,
+  modules: [
+    VueFireAuth(),
+  ],
+});
 
 const pinia = createPinia();
 pinia.use(piniaPluginPersistedState);

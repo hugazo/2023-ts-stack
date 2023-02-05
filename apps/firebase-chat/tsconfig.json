@@ -36,5 +36,10 @@
     ".eslintrc.cjs",
     "./vite.config.ts"
   ],
+  "vueCompilerOptions": {
+    "plugins": [
+      "@volar/vue-language-plugin-pug"
+    ]
+  },
   "references": [{ "path": "./tsconfig.node.json" }]
 }
