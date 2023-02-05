@@ -6588,7 +6588,7 @@ void-elements@^3.1.0:
   resolved "https://registry.yarnpkg.com/void-elements/-/void-elements-3.1.0.tgz#614f7fbf8d801f0bb5f0661f5b2f5785750e4f09"
   integrity sha512-Dhxzh5HZuiHQhbvTW9AMetFfBHDMYpo23Uo9btPXgdYP+3T5S+p+jgNy7spra+veYhBP2dCSgxR/i2Y02h5/6w==
 
-vue-demi@*:
+vue-demi@*, vue-demi@latest:
   version "0.13.11"
   resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.13.11.tgz#7d90369bdae8974d87b1973564ad390182410d99"
   integrity sha512-IR8HoEEGM65YY3ZJYAjMlKygDQn25D5ajNFNoKh9RSDMQtlzCxtfQjdQgv9jjK+m3377SsJXY8ysq8kLCZL25A==
@@ -6639,6 +6639,13 @@ vue@^3.2.45:
     "@vue/runtime-dom" "3.2.47"
     "@vue/server-renderer" "3.2.47"
     "@vue/shared" "3.2.47"
+
+vuefire@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/vuefire/-/vuefire-3.0.1.tgz#2a26aa06573788ff73c24744fc62a649f15071b5"
+  integrity sha512-d3aYvoB30iQ6DwQ436PjEZKams09X1YviTwMWeydzuylyhURpk1ODQfZKCHwd9Cu/0xIb024xXQS4n+XeIMsNA==
+  dependencies:
+    vue-demi latest
 
 walk-up-path@^1.0.0:
   version "1.0.0"
