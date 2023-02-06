@@ -9,6 +9,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': '/src',
+      '@@': '/',
       '@store': '/src/store',
       '@components': '/src/components',
       '@services': '/src/services',
