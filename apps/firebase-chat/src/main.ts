@@ -20,6 +20,17 @@ import App from './App.vue';
 
 const app = createApp(App);
 
+const pinia = createPinia();
+pinia.use(piniaPluginPersistedState);
+app.use(pinia);
+
+const routes = setupLayouts(generatedRoutes);
+const router = createRouter({
+  history: createWebHistory(),
+  routes,
+});
+app.use(router);
+
 app.use(VueFire, {
   firebaseApp,
   modules: [
@@ -27,20 +38,9 @@ app.use(VueFire, {
   ],
 });
 
-const pinia = createPinia();
-pinia.use(piniaPluginPersistedState);
-
-const routes = setupLayouts(generatedRoutes);
-const router = createRouter({
-  history: createWebHistory(),
-  routes,
-});
-
 app.use(Quasar, {
   plugins: {},
   iconSet: quasarIconSet,
 });
 
-app.use(pinia);
-app.use(router);
 app.mount('#app');
