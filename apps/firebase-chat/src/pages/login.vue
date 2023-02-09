@@ -17,3 +17,9 @@ import useAuthStore from '@store/auth';
 
 const authStore = useAuthStore();
 </script>
+
+<route lang="yaml">
+name: 'LoginPage'
+meta:
+  layout: 'unauthenticated'
+</route>

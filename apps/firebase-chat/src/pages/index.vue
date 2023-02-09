@@ -11,3 +11,7 @@ import useCounterStore from '@/store/counter';
 
 const store = useCounterStore();
 </script>
+
+<route lang="yaml">
+name: 'IndexPage'
+</route>
