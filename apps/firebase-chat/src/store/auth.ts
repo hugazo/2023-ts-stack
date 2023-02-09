@@ -1,4 +1,5 @@
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
 import { useCurrentUser } from 'vuefire';
 import { defineStore } from 'pinia';
 import {
@@ -9,6 +10,30 @@ import { error } from '@services/notifier';
 
 export default defineStore('auth', () => {
   const user = useCurrentUser();
+
+  const router = useRouter();
+  const currentRoute = useRoute();
+
+  watch(user, (newUser) => {
+    // Unauthenticated Users
+    if (!newUser && currentRoute.meta.requiresAuth) {
+      router.push({
+        name: 'LoginPage',
+        query: {
+          redirection: currentRoute.fullPath,
+        },
+      });
+    }
+    // User logged redirection
+    if (newUser && !currentRoute.meta.requiresAuth) {
+      // Logged in on allowAuthenticated route
+      const { redirection } = currentRoute.query;
+      const to = redirection && typeof redirection === 'string'
+        ? redirection
+        : '/';
+      router.push(to);
+    }
+  });
 
   const loading = ref(false);
 
@@ -30,6 +55,7 @@ export default defineStore('auth', () => {
   return {
     // State
     user,
+    loading,
     // Methods
     googleSignIn,
     logout,

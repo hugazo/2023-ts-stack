@@ -14,6 +14,16 @@ interface ImportMetaEnv {
   readonly MODE: string,
 }
 
+// Env import
 interface ImportMeta {
   readonly env: ImportMetaEnv,
 }
+
+// Route meta
+interface RouteMeta {
+  name?: string,
+  requiresAuth?: boolean,
+  layout?: string,
+}
+
+export { };
