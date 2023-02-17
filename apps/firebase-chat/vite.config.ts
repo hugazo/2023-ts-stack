@@ -10,9 +10,10 @@ export default defineConfig({
     alias: {
       '@': '/src',
       '@@': '/',
-      '@store': '/src/store',
       '@components': '/src/components',
+      '@models': '/src/models',
       '@services': '/src/services',
+      '@store': '/src/store',
     },
   },
   plugins: [
