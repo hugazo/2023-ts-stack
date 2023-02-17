@@ -1,5 +1,4 @@
 <template lang="pug">
-div
-  p Unauthenticated Layout!
+q-layout
   RouterView
 </template>
