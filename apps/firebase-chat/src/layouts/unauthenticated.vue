@@ -1,4 +1,4 @@
 <template lang="pug">
 q-layout
-  RouterView
+  router-view
 </template>

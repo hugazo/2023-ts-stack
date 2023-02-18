@@ -5,21 +5,16 @@ q-page.window-height.window-width.row.justify-center.items-center
       h5 Welcome
     .row
       .card.q-pa-lg.shadow-2
-        template(v-if="authStore.user")
-          q-btn(@click.prevent="authStore.logout")
-            | Logout
-          pre {{ authStore.user }}
-        p(v-else-if="authStore.user === undefined")
-          | Loading...
-        template(v-else)
-          q-btn(@click.prevent="authStore.googleSignIn")
-            | Sign in with Google
+        Suspense
+          template(#default)
+            Login
+          template(#fallback)
+            p Loading...
 </template>
 
 <script setup lang="ts">
-import useAuthStore from '@store/auth';
-
-const authStore = useAuthStore();
+import { Suspense } from 'vue';
+import Login from '@components/auth/login.vue';
 </script>
 
 <route lang="yaml">
