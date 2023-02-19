@@ -9,6 +9,7 @@ import {
   signOut as signOutHandler,
   // Types
   AuthProvider,
+  sendSignInLinkToEmail,
 } from 'firebase/auth';
 import firebaseInstance from '@services/firebase';
 
@@ -49,13 +50,21 @@ export const signOut = async () => {
   await signOutHandler(auth);
 };
 
+export const signInWithEmail = async (email: string) => {
+  const settings = {
+    url: window.location.href,
+    handleCodeInApp: true,
+  };
+  await sendSignInLinkToEmail(auth, email, settings);
+};
+
 /**
  * TODO: Auth methods
  * [x] Common logic
  * [ ] Facebook
  * [x] Google
  * [ ] Github
- * [ ] Email
+ * [x] Email
  * [x] Signout
  */
 
