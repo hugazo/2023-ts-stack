@@ -1,5 +1,5 @@
 <template lang="pug">
-div(position="absolute")
+q-layout
   RouterView
 </template>
 
