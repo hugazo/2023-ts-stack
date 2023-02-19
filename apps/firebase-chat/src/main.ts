@@ -7,7 +7,7 @@ import firebaseApp from '@services/firebase';
 import { createPinia } from 'pinia';
 import piniaPluginPersistedState from 'pinia-plugin-persistedstate';
 // Ui Library
-import { Quasar } from 'quasar';
+import { Quasar, Notify } from 'quasar';
 import quasarIconSet from 'quasar/icon-set/mdi-v6';
 import '@quasar/extras/mdi-v6/mdi-v6.css';
 import 'quasar/src/css/index.sass';
@@ -39,7 +39,9 @@ app.use(VueFire, {
 });
 
 app.use(Quasar, {
-  plugins: {},
+  plugins: {
+    Notify,
+  },
   iconSet: quasarIconSet,
 });
 
