@@ -7,6 +7,10 @@ import {
   FacebookAuthProvider,
   GithubAuthProvider,
   signOut as signOutHandler,
+  // Email Link
+  sendSignInLinkToEmail,
+  isSignInWithEmailLink,
+  signInWithEmailLink,
   // Types
   AuthProvider,
 } from 'firebase/auth';
@@ -49,13 +53,30 @@ export const signOut = async () => {
   await signOutHandler(auth);
 };
 
+export const sendAuthMail = async (email: string) => {
+  const settings = {
+    url: window.location.href,
+    handleCodeInApp: true,
+  };
+  await sendSignInLinkToEmail(auth, email, settings);
+};
+
+export const validateMagicLink = (emailLink: string) => {
+  const isMagicLink = isSignInWithEmailLink(auth, emailLink);
+  return isMagicLink;
+};
+
+export const signInEmail = async (email: string) => {
+  await signInWithEmailLink(auth, email, window.location.href);
+};
+
 /**
  * TODO: Auth methods
  * [x] Common logic
- * [ ] Facebook
+ * [x] Facebook
  * [x] Google
- * [ ] Github
- * [ ] Email
+ * [x] Github
+ * [x] Email
  * [x] Signout
  */
 
