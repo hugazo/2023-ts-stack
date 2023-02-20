@@ -11,6 +11,10 @@ import { Quasar, Notify } from 'quasar';
 import quasarIconSet from 'quasar/icon-set/mdi-v6';
 import '@quasar/extras/mdi-v6/mdi-v6.css';
 import 'quasar/src/css/index.sass';
+// Animations
+import '@quasar/extras/animate/fadeIn.css';
+import '@quasar/extras/animate/fadeOut.css';
+
 // Router
 import { createRouter, createWebHistory } from 'vue-router';
 import { setupLayouts } from 'virtual:generated-layouts';
