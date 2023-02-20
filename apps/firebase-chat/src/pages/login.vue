@@ -5,15 +5,10 @@ q-page.window-height.window-width.row.justify-center.items-center
       h5 Welcome
     .row
       .card.q-pa-lg.shadow-2
-        Suspense
-          template(#default)
-            Login
-          template(#fallback)
-            p Loading...
+        Login
 </template>
 
 <script setup lang="ts">
-import { Suspense } from 'vue';
 import Login from '@components/auth/login.vue';
 </script>
 

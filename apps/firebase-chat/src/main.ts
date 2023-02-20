@@ -29,11 +29,12 @@ const router = createRouter({
   history: createWebHistory(),
   routes,
 });
-
 app.use(router);
+
 const pinia = createPinia();
 pinia.use(piniaPluginPersistedState);
 app.use(pinia);
+
 
 app.use(VueFire, {
   firebaseApp,
