@@ -1,7 +1,3 @@
-<script setup lang="ts">
-import { Suspense } from 'vue';
-</script>
-
 <template lang="pug">
 q-layout(view="lHh Lpr lff")
   q-page-container.main-container
@@ -16,7 +12,20 @@ q-layout(view="lHh Lpr lff")
             Component(:is="Component")
       template(#fallback)
         p Loading...
+    q-page-sticky(position="top-right" :offset="[18, 18]")
+      q-btn(round
+        color="black"
+        @click.prevent="themeStore.changeTheme"
+        :icon="themeStore.currentTheme.icon"
+      )
 </template>
+
+<script setup lang="ts">
+import { Suspense } from 'vue';
+import useThemeStore from '@store/theme';
+
+const themeStore = useThemeStore();
+</script>
 
 <style>
 .main-container {
