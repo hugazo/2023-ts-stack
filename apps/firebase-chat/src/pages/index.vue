@@ -1,15 +1,16 @@
 <template lang="pug">
-p This is the index page and the counter is: {{ store.counter }}
-q-btn(@click.prevent="store.sum")
-  | Counter +
-q-btn(@click.prevent="store.substract")
-  | Counter -
+q-page-container
+  .row
+    p This is the homepage
+  .row
+    q-btn(@click.prevent="store.logout")
+      | Logout
 </template>
 
 <script lang="ts" setup>
-import useCounterStore from '@/store/counter';
+import useAuthStore from '@store/auth';
 
-const store = useCounterStore();
+const store = useAuthStore();
 </script>
 
 <route lang="yaml">

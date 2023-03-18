@@ -1,8 +1,5 @@
 <script setup lang="ts">
 import { Suspense } from 'vue';
-import useAuthStore from '@store/auth';
-
-useAuthStore();
 </script>
 
 <template lang="pug">

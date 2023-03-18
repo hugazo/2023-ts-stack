@@ -17,32 +17,6 @@ import { emailLoginModel } from '@/models/auth';
 
 export default defineStore('auth', () => {
   const user = useCurrentUser();
-
-  const router = useRouter();
-  const currentRoute = useRoute();
-
-  // Route watcher
-  watch(user, (newUser) => {
-    // Unauthenticated Users
-    if (!newUser && currentRoute.meta.requiresAuth) {
-      router.push({
-        name: 'LoginPage',
-        query: {
-          redirection: currentRoute.fullPath,
-        },
-      });
-    }
-    // User logged redirection
-    if (newUser && !currentRoute.meta.requiresAuth) {
-      // Logged in on allowAuthenticated route
-      const { redirection } = currentRoute.query;
-      const to = redirection && typeof redirection === 'string'
-        ? redirection
-        : '/';
-      router.push(to);
-    }
-  });
-
   // Store loading status
   const loading = ref(false);
   // Magic email logic
@@ -70,7 +44,7 @@ export default defineStore('auth', () => {
   };
 
   // Init function
-  const userLoad = async () => {
+  const handleAuthEmailLink = async () => {
     const emailLink = window.location.href;
     if (validateMagicLink(emailLink)) {
       if (emailForSignIn.value) {
@@ -124,7 +98,7 @@ export default defineStore('auth', () => {
     githubSignIn,
     emailSignIn,
     logout,
-    userLoad,
+    handleAuthEmailLink,
   };
 }, {
   persist: {

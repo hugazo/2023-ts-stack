@@ -3,14 +3,28 @@ q-layout
   RouterView
 </template>
 
-<script setup lang="ts">
-// import useAuthStore from '@store/auth';
-import { useRoute } from 'vue-router';
+<script async setup lang="ts">
+import { watch } from 'vue';
+import { useRouter, useRoute } from 'vue-router';
+import { getCurrentUser } from 'vuefire';
 import useAuthStore from '@store/auth';
 
-const route = useRoute();
-route.meta.requiresAuth = true;
+const router = useRouter();
+const currentRoute = useRoute();
+const store = useAuthStore();
 
-const authStore = useAuthStore();
-await authStore.userLoad();
+await getCurrentUser();
+
+watch(store, (newStore) => {
+  if (!newStore.user) {
+    router.push({
+      name: 'LoginPage',
+      query: {
+        redirection: currentRoute.fullPath,
+      },
+    });
+  }
+}, {
+  immediate: true,
+});
 </script>
