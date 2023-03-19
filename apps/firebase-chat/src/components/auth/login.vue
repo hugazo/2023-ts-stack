@@ -15,6 +15,4 @@ import SocialAuth from '@components/auth/social-auth.vue';
 import EmailSignIn from '@/components/auth/email-sign-in.vue';
 
 const authStore = useAuthStore();
-
-await authStore.userLoad();
 </script>

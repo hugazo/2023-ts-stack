@@ -1,21 +1,31 @@
-<script setup lang="ts">
-import useAuthStore from '@store/auth';
-
-const store = useAuthStore();
-</script>
-
 <template lang="pug">
 q-layout(view="lHh Lpr lff")
   q-page-container.main-container
-    router-view(v-slot="{ Component }")
-      transition(
-        mode="out-in"
-        enter-active-class="animated fadeIn"
-        leave-active-class="animated fadeOut"
+    Suspense
+      template(#default)
+        router-view(v-slot="{ Component }")
+          transition(
+            mode="out-in"
+            enter-active-class="animated fadeIn"
+            leave-active-class="animated fadeOut"
+          )
+            Component(:is="Component")
+      template(#fallback)
+        p Loading...
+    q-page-sticky(position="top-right" :offset="[18, 18]")
+      q-btn(round
+        color="black"
+        @click.prevent="themeStore.changeTheme"
+        :icon="themeStore.currentTheme.icon"
       )
-        Component(:is="Component")
-    q-btn(v-if="store?.user" @click.prevent="store.logout") Logout
 </template>
+
+<script setup lang="ts">
+import { Suspense } from 'vue';
+import useThemeStore from '@store/theme';
+
+const themeStore = useThemeStore();
+</script>
 
 <style>
 .main-container {

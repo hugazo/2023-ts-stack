@@ -49,6 +49,7 @@ FIREBASE_RECAPTCHA_KEY=""
 [ ] Firebase
   [x] Dev environment
     [x] Auth
+      [x] Custom authentication per layout
     [x] Firestore
     [x] UI
     [x] Vite Dev Frontend
