@@ -1,4 +1,4 @@
-import { ref, computed } from 'vue';
+import { ref, computed, watch } from 'vue';
 import { defineStore } from 'pinia';
 import { Dark } from 'quasar';
 
@@ -34,19 +34,25 @@ const themeStore = defineStore('theme', () => {
 
   const currentTheme = computed(():Theme => themes[selectedTheme.value]);
 
-  const changeTheme = () => {
-    if (selectedTheme.value < themes.length - 1) {
-      selectedTheme.value += 1;
-    } else {
-      selectedTheme.value = 0;
-    }
+  watch(currentTheme, () => {
     Dark.set(currentTheme.value.value);
+  });
+
+  const changeTheme = () => {
+    selectedTheme.value = selectedTheme.value < themes.length - 1
+      ? selectedTheme.value + 1
+      : 0;
   };
 
   return {
+    selectedTheme,
     currentTheme,
     changeTheme,
   };
+}, {
+  persist: {
+    storage: localStorage,
+  },
 });
 
 export default themeStore;
