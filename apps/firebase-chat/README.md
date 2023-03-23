@@ -59,7 +59,7 @@ FIREBASE_RECAPTCHA_KEY=""
   [x] Libraries
   [ ] Services
     [x] Firebase Instance
-    [ ] Auth
+    [x] Auth
     [ ] Firestore
   [ ] Models
 [ ] Type Checking

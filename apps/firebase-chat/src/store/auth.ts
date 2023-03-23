@@ -1,5 +1,4 @@
-import { ref, computed, watch } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
+import { ref, computed, Ref } from 'vue';
 import { useCurrentUser, getCurrentUser } from 'vuefire';
 import { defineStore } from 'pinia';
 import {
@@ -13,10 +12,10 @@ import {
 } from '@services/firebase/auth';
 import { error, success, info } from '@services/notifier';
 
-import { emailLoginModel } from '@/models/auth';
+import { emailLoginModel, AuthCustomUser } from '@/models/auth';
 
 export default defineStore('auth', () => {
-  const user = useCurrentUser();
+  const user = useCurrentUser() as Ref<AuthCustomUser>;
   // Store loading status
   const loading = ref(false);
   // Magic email logic
@@ -83,6 +82,18 @@ export default defineStore('auth', () => {
 
   const buttonText = computed(() => (promptForEmail.value ? 'Confirm my email' : 'Send me an email magic link'));
 
+  // async function that returns the user custom claims
+  const getUserRoles = async () => {
+    if (user) {
+      const token = await user.value.getIdTokenResult();
+      if (token.claims.roles) {
+        return token.claims.roles;
+      }
+      return [];
+    }
+    return null;
+  };
+
   return {
     // State
     user,
@@ -99,6 +110,7 @@ export default defineStore('auth', () => {
     emailSignIn,
     logout,
     handleAuthEmailLink,
+    getUserRoles,
   };
 }, {
   persist: {
