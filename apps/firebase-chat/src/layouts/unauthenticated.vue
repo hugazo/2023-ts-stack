@@ -3,7 +3,7 @@ q-layout
   router-view
 </template>
 
-<script async setup lang="ts">
+<script setup lang="ts">
 import { watch } from 'vue';
 import {
   useRouter,
@@ -12,8 +12,6 @@ import {
 import useAuthStore from '@store/auth';
 
 const store = useAuthStore();
-
-store.handleAuthEmailLink();
 
 const router = useRouter();
 const currentRoute = useRoute();
@@ -27,4 +25,5 @@ watch(store, (newStore) => {
     router.push(to);
   }
 });
+await store.handleAuthEmailLink();
 </script>
