@@ -5,24 +5,19 @@ q-layout
 
 <script setup lang="ts">
 import { watch } from 'vue';
-import {
-  useRouter,
-  useRoute,
-} from 'vue-router';
+import { useRouter } from 'vue-router';
+import { useRouteQuery } from '@vueuse/router';
 import useAuthStore from '@store/auth';
 
 const store = useAuthStore();
 
 const router = useRouter();
-const currentRoute = useRoute();
+
+const redirection = useRouteQuery('redirection', '/');
 
 watch(store, (newStore) => {
   if (newStore.user) {
-    const { redirection } = currentRoute.query;
-    const to = redirection && typeof redirection === 'string'
-      ? redirection
-      : '/';
-    router.push(to);
+    router.push(redirection.value);
   }
 });
 await store.handleAuthEmailLink();
