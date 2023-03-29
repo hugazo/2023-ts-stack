@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "yarn dev:front & yarn dev:firebase",
     "dev:front": "vite",
-    "dev:firebase": "firebase emulators:start --only firestore,auth",
+    "dev:firebase": "firebase emulators:start --only firestore,auth --import=.firebase --export-on-exit",
     "build": "vue-tsc && vite build",
     "deploy": "firebase deploy",
     "preview": "vite preview"

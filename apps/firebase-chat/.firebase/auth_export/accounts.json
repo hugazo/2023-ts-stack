@@ -1,0 +1,54 @@
+{
+  "kind": "identitytoolkit#DownloadAccountResponse",
+  "users": [
+    {
+      "localId": "9n33IT8STLYaMbv1P0KlzI7cH5ec",
+      "lastLoginAt": "1680122442599",
+      "displayName": "Admin Profile",
+      "photoUrl": "",
+      "emailVerified": false,
+      "email": "admin@local",
+      "salt": "fakeSalto3gRLR0z9haq71FRxkVL",
+      "passwordHash": "fakeHash:salt=fakeSalto3gRLR0z9haq71FRxkVL:password=123456",
+      "passwordUpdatedAt": 1680122442599,
+      "validSince": "1680122442",
+      "mfaInfo": [],
+      "createdAt": "1680122442599",
+      "providerUserInfo": [
+        {
+          "providerId": "password",
+          "email": "admin@local",
+          "federatedId": "admin@local",
+          "rawId": "admin@local",
+          "displayName": "Admin Profile",
+          "photoUrl": ""
+        }
+      ],
+      "customAttributes": "{\"roles\": [\"admin\"]}"
+    },
+    {
+      "localId": "noxPIAEZ7SVCHznspqUJ8dlBqWey",
+      "lastLoginAt": "1680122486912",
+      "displayName": "User Profile",
+      "photoUrl": "",
+      "emailVerified": false,
+      "email": "user@local",
+      "salt": "fakeSaltUtdh8DwkO5xgGsAl6AFz",
+      "passwordHash": "fakeHash:salt=fakeSaltUtdh8DwkO5xgGsAl6AFz:password=123456",
+      "passwordUpdatedAt": 1680122486912,
+      "validSince": "1680122486",
+      "mfaInfo": [],
+      "createdAt": "1680122486912",
+      "providerUserInfo": [
+        {
+          "providerId": "password",
+          "email": "user@local",
+          "federatedId": "user@local",
+          "rawId": "user@local",
+          "displayName": "User Profile",
+          "photoUrl": ""
+        }
+      ]
+    }
+  ]
+}
