@@ -9,16 +9,20 @@
     "clean": "rimraf dist",
     "serve": "yarn clean && yarn build && node .",
     "build:dev": "tsc -w",
-    "serve:dev": "nodemon -q",
+    "serve:dev": "nodemon --no-stdin -q",
     "dev": "concurrently \"yarn:build:dev\" \"yarn:serve:dev\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/inquirer": "^9.0.3",
     "concurrently": "^8.0.1",
     "nodemon": "^2.0.22",
     "rimraf": "^5.0.0",
     "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "inquirer": "^9.1.5"
   }
 }

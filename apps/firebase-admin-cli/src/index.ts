@@ -1,3 +1,3 @@
-const currentDir = process.cwd();
+import mainScreen from './screens/main.js';
 
-console.log(`Hello World from: ${currentDir}`);
+await mainScreen();
