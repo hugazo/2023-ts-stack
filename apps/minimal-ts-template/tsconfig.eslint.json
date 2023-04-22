@@ -1,7 +1,0 @@
-{
-  "include": [
-    ".eslintrc.cjs",
-    "src/**/*"
-  ],
-  "extends": "./tsconfig.json",
-}
