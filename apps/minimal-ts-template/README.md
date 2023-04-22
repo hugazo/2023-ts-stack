@@ -4,11 +4,17 @@ This project is the result of trying to make a good developer starting point usi
 
 It's kept to a minimal installation that can support hot reload and realtime compilation.
 
+## Features
+
+- 🔥 Local hot reload
+- 🚛 Node 18 compilation
+- ✅ Airbnb Eslint Guide
+
 ## Node version
 
 The node required version is `18`.
 
-### .nvmrc
+### `.nvmrc`
 
 If you are using nvm for handling your node versions, it will be autoinstalled if you have enabled the nvm hooks.
 
