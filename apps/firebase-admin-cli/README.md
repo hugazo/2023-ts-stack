@@ -4,18 +4,30 @@
 
 To create a tool for plattform admins to handle auth info without having to build a whole UI locally using firebase credentials.
 
+## 📚 How-to
+
+- Create a credentials file on Firebase Console => Project Setup => Account Services => Create New Private Key
+- Put this file in the root of your project
+- Create a .env file with the following variables:
+
+```bash
+GOOGLE_APPLICATION_CREDENTIALS="path/to/your/credentials.json"
+```
+
 ## ✅ TO:DO
 
-- [ ] CLI
-  - [ ] List Options
-- [ ] Firebase Admin
-  - [ ] Install library
+- [x] CLI
+  - [x] List Options
+- [x] Firebase Admin
+  - [x] Install library
     - [ ] Local Environment
-    - [ ] Remote Environment
+    - [x] Remote Environment
   - [ ] Handle Users
     - [ ] Create
-    - [ ] Read
+    - [x] Read
     - [ ] Update
+      - [ ] Roles
+      - [ ] User Information
     - [ ] Delete
 
 ## Features

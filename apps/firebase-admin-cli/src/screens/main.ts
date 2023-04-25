@@ -1,20 +1,18 @@
 import inquirer from 'inquirer';
+import userListScreen from './user-list.js';
 
 const mainScreen = async () => {
   const result = await inquirer.prompt([
     {
       type: 'list',
-      name: 'main',
+      name: 'mainSelection',
       message: 'What do you want to do?',
       choices: [
         {
-          name: 'Create a new project',
-          value: 'create',
+          name: 'List users',
+          value: 'list',
         },
-        {
-          name: 'Add a new component',
-          value: 'add',
-        },
+        new inquirer.Separator(),
         {
           name: 'Exit',
           value: 'exit',
@@ -22,8 +20,19 @@ const mainScreen = async () => {
       ],
     },
   ]);
-  console.log(result);
-  return result;
+  switch (result.mainSelection) {
+    case 'list':
+      await userListScreen();
+      break;
+    case 'exit':
+      console.log('Exit');
+      process.exit(0);
+      break;
+    default:
+      console.log('Invalid option');
+      break;
+  }
+  mainScreen();
 };
 
 export default mainScreen;
