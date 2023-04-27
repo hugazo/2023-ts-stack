@@ -1,5 +1,6 @@
 import inquirer from 'inquirer';
 import userListScreen from './user-list.js';
+import userCreateScreen from './user-create.js';
 
 const mainScreen = async () => {
   const result = await inquirer.prompt([
@@ -8,6 +9,10 @@ const mainScreen = async () => {
       name: 'mainSelection',
       message: 'What do you want to do?',
       choices: [
+        {
+          name: 'Create user',
+          value: 'create',
+        },
         {
           name: 'List users',
           value: 'list',
@@ -23,6 +28,9 @@ const mainScreen = async () => {
   switch (result.mainSelection) {
     case 'list':
       await userListScreen();
+      break;
+    case 'create':
+      await userCreateScreen();
       break;
     case 'exit':
       console.log('Exit');

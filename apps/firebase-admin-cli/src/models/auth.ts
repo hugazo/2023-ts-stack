@@ -11,4 +11,10 @@ export const updateUserRoles = async (uid: string, roles: string[]) => {
   await auth.setCustomUserClaims(uid, { roles });
 };
 
+export const createUser = async (user: any) => {
+  const auth = getAuth();
+  const createdUser = await auth.createUser(user);
+  return createdUser;
+};
+
 export default { };
