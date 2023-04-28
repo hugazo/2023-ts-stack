@@ -1,7 +1,7 @@
 import inquirer from 'inquirer';
 import { UserRecord } from 'firebase-admin/auth';
-import userListScreen from './user-list.js';
-import userRoleScreen from './user-roles.js';
+import userListScreen from './list.js';
+import userRoleScreen from './roles.js';
 
 export default async (user: UserRecord) => {
   console.log(`Selected User: ${user.email}`);

@@ -1,5 +1,5 @@
 import inquirer from 'inquirer';
-import { createUser } from '../models/auth.js';
+import { createUser } from '../../models/auth.js';
 
 export default async () => {
   const user = await inquirer.prompt([

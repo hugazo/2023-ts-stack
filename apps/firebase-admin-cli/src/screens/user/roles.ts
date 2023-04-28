@@ -1,6 +1,6 @@
 import inquirer from 'inquirer';
 import { UserRecord } from 'firebase-admin/auth';
-import { updateUserRoles } from '../models/auth.js';
+import { updateUserRoles } from '../../models/auth.js';
 
 export default async (user: UserRecord) => {
   const { roles } = await inquirer.prompt([

@@ -1,7 +1,7 @@
 import inquirer from 'inquirer';
 import { UserRecord } from 'firebase-admin/auth';
-import { getUsers } from '../models/auth.js';
-import selectedUserScreen from './user-selected.js';
+import { getUsers } from '../../models/auth.js';
+import selectedUserScreen from './selected.js';
 
 type UserListScreenResult = {
   userSelection: UserRecord;

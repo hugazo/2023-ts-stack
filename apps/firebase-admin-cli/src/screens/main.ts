@@ -1,6 +1,6 @@
 import inquirer from 'inquirer';
-import userListScreen from './user-list.js';
-import userCreateScreen from './user-create.js';
+import userListScreen from './user/list.js';
+import userCreateScreen from './user/create.js';
 
 const mainScreen = async () => {
   const result = await inquirer.prompt([
