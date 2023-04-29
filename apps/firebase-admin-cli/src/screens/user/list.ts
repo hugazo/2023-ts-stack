@@ -4,7 +4,7 @@ import { getUsers } from '../../models/auth.js';
 import selectedUserScreen from './selected.js';
 
 type UserListScreenResult = {
-  userSelection: UserRecord;
+  userSelection: UserRecord | null;
 };
 
 export default async () => {
@@ -13,14 +13,22 @@ export default async () => {
     name: user.email,
     value: user,
   }));
-  const userListSelection: UserListScreenResult = await inquirer.prompt([
+  const { userSelection }: UserListScreenResult = await inquirer.prompt([
     {
       type: 'list',
       name: 'userSelection',
       message: 'Select a user',
-      choices: userEmails,
+      choices: [
+        ...userEmails,
+        {
+          name: 'Back',
+          value: null,
+        },
+      ],
     },
   ]);
-  await selectedUserScreen(userListSelection.userSelection);
+  if (userSelection) {
+    await selectedUserScreen(userSelection);
+  }
   return result;
 };

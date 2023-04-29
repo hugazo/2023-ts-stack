@@ -7,7 +7,7 @@ export default async (user: UserRecord) => {
     {
       type: 'checkbox',
       name: 'roles',
-      message: 'Select Roles with [space], then press [Enter]',
+      message: 'Select Roles:',
       default: user.customClaims?.roles || [],
       choices: [
         {
@@ -25,6 +25,6 @@ export default async (user: UserRecord) => {
       ],
     },
   ]);
-  await updateUserRoles(user.uid, roles);
-  console.log('Updated User', user.uid, roles);
+  const updatedUser = await updateUserRoles(user.uid, roles);
+  return updatedUser;
 };

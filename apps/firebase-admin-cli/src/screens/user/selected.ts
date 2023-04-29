@@ -2,9 +2,9 @@ import inquirer from 'inquirer';
 import { UserRecord } from 'firebase-admin/auth';
 import userListScreen from './list.js';
 import userRoleScreen from './roles.js';
+import { switchUserStatus } from '../../models/auth.js';
 
-export default async (user: UserRecord) => {
-  console.log(`Selected User: ${user.email}`);
+export const selectedUserScreen = async (user: UserRecord) => {
   const { optionSelected } = await inquirer.prompt([
     {
       type: 'list',
@@ -17,7 +17,11 @@ export default async (user: UserRecord) => {
         //   value: 'update',
         // },
         {
-          name: 'Update User Roles',
+          name: `${user.disabled ? 'Enable' : 'Disable'} User`,
+          value: 'switchStatus',
+        },
+        {
+          name: `Update User Roles (${user.customClaims?.roles ? user.customClaims.roles : ''})`,
           value: 'roles',
         },
         {
@@ -28,9 +32,17 @@ export default async (user: UserRecord) => {
     },
   ]);
   switch (optionSelected) {
-    case 'roles':
-      await userRoleScreen(user);
+    case 'switchStatus': {
+      const newStatus = !user.disabled;
+      const updatedUser = await switchUserStatus(user.uid, newStatus);
+      await selectedUserScreen(updatedUser);
       break;
+    }
+    case 'roles': {
+      const updatedUser = await userRoleScreen(user);
+      await selectedUserScreen(updatedUser);
+      break;
+    }
     case 'return':
       console.log('Return to user list');
       await userListScreen();
@@ -41,3 +53,5 @@ export default async (user: UserRecord) => {
   }
   return user;
 };
+
+export default selectedUserScreen;
