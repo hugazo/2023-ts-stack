@@ -3,7 +3,7 @@ import userListScreen from './user/list.js';
 import userCreateScreen from './user/create.js';
 
 const mainScreen = async () => {
-  const result = await inquirer.prompt([
+  const { mainSelection } = await inquirer.prompt([
     {
       type: 'list',
       name: 'mainSelection',
@@ -25,7 +25,7 @@ const mainScreen = async () => {
       ],
     },
   ]);
-  switch (result.mainSelection) {
+  switch (mainSelection) {
     case 'list':
       await userListScreen();
       break;
