@@ -7,10 +7,10 @@
   "scripts": {
     "build": "tsc",
     "clean": "rimraf dist",
-    "serve": "yarn clean && yarn build && node .",
+    "serve": "pnpm clean && pnpm build && node .",
     "build:dev": "tsc -w",
     "serve:dev": "nodemon --no-stdin -q",
-    "dev": "concurrently \"yarn:build:dev\" \"yarn:serve:dev\""
+    "dev": "concurrently \"pnpm:build:dev\" \"pnpm:serve:dev\""
   },
   "keywords": [],
   "author": "",
