@@ -56,17 +56,17 @@ nvm use
 ## Installation
 
 ```bash
-yarn install
+pnpm install
 ```
 
 ## Development
 
 ```bash
-yarn dev
+pnpm dev
 ```
 
 ## Build
 
 ```bash
-yarn build
+pnpm build
 ```
