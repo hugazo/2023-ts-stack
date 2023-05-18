@@ -16,27 +16,28 @@ Solves an issue with Nuxt 3.5 on which needs a hostically installation.
 
 ### academy-front
 
-- [ ] dev
-- [ ] build
-- [ ] preview
+- [x] dev
+- [x] build
+- [x] preview
 
 ### firebase-auth-admin-cli
 
-- [ ] build
-- [ ] clean
-- [ ] serve
-- [ ] build:dev
-- [ ] serve:dev
-- [ ] dev
+- [x] build
+- [x] clean
+- [x] serve
+- [x] build:dev
+- [x] serve:dev
+- [x] dev
+  - Has an issue where nodemon does not receive user input on dev
 
 ### firebase-chat
 
 - [x] dev
 - [x] dev:front
 - [x] dev:firebase
-- [ ] build
-- [ ] deploy
-- [ ] preview
+- [x] build
+- [x] deploy
+- [x] preview
 
 ## Notes
 
