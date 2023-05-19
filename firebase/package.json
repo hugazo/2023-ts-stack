@@ -1,0 +1,17 @@
+{
+  "name": "local-emulator",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "firebase emulators:start --only firestore,auth --import .firebase --export-on-exit --project local-emulator",
+    "deploy": "firebase deploy --only firestore,auth",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "firebase": "^9.17.1"
+  }
+}
