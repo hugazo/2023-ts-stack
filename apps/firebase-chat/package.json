@@ -4,9 +4,7 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "dev": "pnpm dev:front & pnpm dev:firebase",
-    "dev:front": "vite",
-    "dev:firebase": "firebase emulators:start --only firestore,auth --import=.firebase --export-on-exit",
+    "dev": "vite",
     "build": "vue-tsc && vite build",
     "deploy": "firebase deploy",
     "preview": "vite preview"
