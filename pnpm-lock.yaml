@@ -41,9 +41,6 @@ importers:
       eslint-plugin-vue:
         specifier: ^9.13.0
         version: 9.13.0(eslint@8.41.0)
-      typescript:
-        specifier: ^5.0.4
-        version: 5.0.4
       vite:
         specifier: ^4.3.8
         version: 4.3.8(sass@1.32.12)
@@ -78,9 +75,6 @@ importers:
       sass:
         specifier: 1.32.12
         version: 1.32.12
-      typescript:
-        specifier: ^5.0.4
-        version: 5.0.4
       vite:
         specifier: ^4.3.8
         version: 4.3.8(sass@1.32.12)
@@ -112,9 +106,6 @@ importers:
       rimraf:
         specifier: ^5.0.0
         version: 5.0.0
-      typescript:
-        specifier: ^5.0.4
-        version: 5.0.4
 
   apps/firebase-chat:
     dependencies:
@@ -176,9 +167,6 @@ importers:
       sass:
         specifier: 1.32.12
         version: 1.32.12
-      typescript:
-        specifier: ^5.0.4
-        version: 5.0.4
       vite:
         specifier: ^4.3.8
         version: 4.3.8(sass@1.32.12)
@@ -210,9 +198,6 @@ importers:
       eslint-plugin-vue:
         specifier: ^9.13.0
         version: 9.13.0(eslint@8.41.0)
-      typescript:
-        specifier: ^5.0.4
-        version: 5.0.4
       vite:
         specifier: ^4.3.8
         version: 4.3.8(sass@1.32.12)
@@ -231,9 +216,6 @@ importers:
       rimraf:
         specifier: ^5.0.0
         version: 5.0.0
-      typescript:
-        specifier: ^5.0.4
-        version: 5.0.4
 
 packages:
 
