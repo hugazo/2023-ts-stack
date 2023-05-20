@@ -1,40 +1,34 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue';
+import { ref } from 'vue';
+
+const count = ref(0);
 </script>
 
 <template lang="pug">
-div
-  a(
-    href="https://vitejs.dev"
-    target="_blank"
-  )
-  img(
-    src="/vite.svg"
-    class="logo"
-    alt="Vite logo"
-  )
-  a(
-    href="https://vuejs.org/"
-    target="_blank"
-  )
-  img(
-    src="./assets/vue.svg"
-    class="logo vue"
-    alt="Vue logo"
-  )
-  HelloWorld(msg="Vite + Vue")
+q-layout
+  q-page-container.full-height.full-width
+    q-page.q-pa-md
+      q-card.my-card.q-pa-md
+        img.vue-logo(src="./assets/vue.svg" alt="Vue logo")
+        p.text-h6 This is a vue + vite + quasar demo.
+        p.text-body1 You clicked {{ count }} times.
+        q-btn(@click="count ++" flat)
+          | Press me
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
+<style lang="sass ">
+.my-card
+  min-width: 300px
+  max-width: 400px
+  // center in the middle of the screen
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+  // center inner items
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+
 </style>
