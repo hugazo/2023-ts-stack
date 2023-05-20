@@ -20,12 +20,10 @@ q-layout
 .my-card
   min-width: 300px
   max-width: 400px
-  // center in the middle of the screen
   position: absolute
   top: 50%
   left: 50%
   transform: translate(-50%, -50%)
-  // center inner items
   display: flex
   flex-direction: column
   justify-content: center
