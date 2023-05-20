@@ -51,6 +51,28 @@ importers:
         specifier: ^1.0.11
         version: 1.0.11(typescript@4.9.4)
 
+  apps/auth-app:
+    dependencies:
+      vue:
+        specifier: ^3.3.4
+        version: 3.3.4
+    devDependencies:
+      '@vitejs/plugin-vue':
+        specifier: ^4.2.3
+        version: 4.2.3(vite@4.3.8)(vue@3.3.4)
+      eslint-plugin-vue:
+        specifier: ^9.13.0
+        version: 9.13.0(eslint@8.41.0)
+      typescript:
+        specifier: ^4.9.5
+        version: 4.9.5
+      vite:
+        specifier: ^4.3.8
+        version: 4.3.8
+      vue-tsc:
+        specifier: ^1.6.5
+        version: 1.6.5(typescript@4.9.5)
+
   apps/firebase-admin-cli:
     dependencies:
       dotenv:
@@ -158,34 +180,6 @@ importers:
         specifier: ^9.17.1
         version: 9.17.1
 
-  local-emulator:
-    devDependencies:
-      firebase:
-        specifier: ^9.17.1
-        version: 9.17.1
-
-  packages/front-starter:
-    dependencies:
-      vue:
-        specifier: ^3.2.45
-        version: 3.2.45
-    devDependencies:
-      '@vitejs/plugin-vue':
-        specifier: ^4.0.0
-        version: 4.0.0(vite@4.0.0)(vue@3.2.45)
-      eslint-plugin-vue:
-        specifier: ^9.8.0
-        version: 9.8.0(eslint@8.2.0)
-      typescript:
-        specifier: ^4.9.3
-        version: 4.9.4
-      vite:
-        specifier: ^4.0.0
-        version: 4.0.0(sass@1.32.12)
-      vue-tsc:
-        specifier: ^1.0.11
-        version: 1.0.11(typescript@4.9.4)
-
   templates/front-starter:
     dependencies:
       vue:
@@ -208,7 +202,7 @@ importers:
         specifier: ^1.6.5
         version: 1.6.5(typescript@4.9.5)
 
-  templates/ts-template-starter:
+  templates/ts-node-starter:
     devDependencies:
       concurrently:
         specifier: ^8.0.1
@@ -825,7 +819,7 @@ packages:
     resolution: {integrity: sha512-rLMyrXuO9jcAUCaQXCMjCMUsWrba5fzHlNK24xz5j2W6A/SRmK8mZJ/hn7V0fViLbxC0lPMtrK1eYzk6Fg03jA==}
     dependencies:
       '@firebase/util': 1.9.3
-      tslib: 2.5.0
+      tslib: 2.5.2
     dev: false
 
   /@firebase/database-compat@0.3.3:
@@ -846,7 +840,7 @@ packages:
       '@firebase/database-types': 0.10.4
       '@firebase/logger': 0.4.0
       '@firebase/util': 1.9.3
-      tslib: 2.5.0
+      tslib: 2.5.2
     dev: false
 
   /@firebase/database-types@0.10.3:
@@ -880,7 +874,7 @@ packages:
       '@firebase/logger': 0.4.0
       '@firebase/util': 1.9.3
       faye-websocket: 0.11.4
-      tslib: 2.5.0
+      tslib: 2.5.2
     dev: false
 
   /@firebase/firestore-compat@0.3.3(@firebase/app-compat@0.2.3)(@firebase/app-types@0.9.0)(@firebase/app@0.9.3):
@@ -1133,7 +1127,7 @@ packages:
   /@firebase/util@1.9.3:
     resolution: {integrity: sha512-DY02CRhOZwpzO36fHpuVysz6JZrscPiBXD0fXp6qSrL9oNOx5KWICKdR95C0lSITzxp0TZosVyHqzatE8JbcjA==}
     dependencies:
-      tslib: 2.5.0
+      tslib: 2.5.2
     dev: false
 
   /@firebase/webchannel-wrapper@0.9.0:
@@ -1684,7 +1678,7 @@ packages:
     resolution: {integrity: sha512-YwUYKxIyDc+Fq3kQ6BGGfkrKCG5JzE2Yr6vMxrxEXW2rg/gsq3JgMk/4sI8ybRsaTirhCB4V8+AIVYsvcRxgig==}
     dependencies:
       '@volar/source-map': 1.0.11
-      '@vue/reactivity': 3.3.2
+      '@vue/reactivity': 3.3.4
       muggle-string: 0.1.0
     dev: true
 
@@ -1779,10 +1773,10 @@ packages:
     dependencies:
       '@volar/language-core': 1.0.11
       '@volar/source-map': 1.0.11
-      '@vue/compiler-dom': 3.3.2
-      '@vue/compiler-sfc': 3.3.2
+      '@vue/compiler-dom': 3.3.4
+      '@vue/compiler-sfc': 3.3.4
       '@vue/reactivity': 3.3.2
-      '@vue/shared': 3.3.2
+      '@vue/shared': 3.3.4
       minimatch: 5.1.6
       vue-template-compiler: 2.7.14
     dev: true
@@ -1844,6 +1838,7 @@ packages:
       '@vue/shared': 3.3.2
       estree-walker: 2.0.2
       source-map-js: 1.0.2
+    dev: false
 
   /@vue/compiler-core@3.3.4:
     resolution: {integrity: sha512-cquyDNvZ6jTbf/+x+AgM2Arrp6G4Dzbb0R64jiG804HRMfRiFXWI6kqUVqZ6ZR0bQhIoQjB4+2bhNtVwndW15g==}
@@ -1864,6 +1859,7 @@ packages:
     dependencies:
       '@vue/compiler-core': 3.3.2
       '@vue/shared': 3.3.2
+    dev: false
 
   /@vue/compiler-dom@3.3.4:
     resolution: {integrity: sha512-wyM+OjOVpuUukIq6p5+nwHYtj9cFroz9cwkfmP9O1nzH68BenTTv0u7/ndggT8cIQlnBeOo6sUT/gvHcIkLA5w==}
@@ -1898,6 +1894,7 @@ packages:
       magic-string: 0.30.0
       postcss: 8.4.23
       source-map-js: 1.0.2
+    dev: false
 
   /@vue/compiler-sfc@3.3.4:
     resolution: {integrity: sha512-6y/d8uw+5TkCuzBkgLS0v3lSM3hJDntFEiUORM11pQ/hKvkhSKZrXW6i69UyXlJQisJxuUEJKAWEqWbWsLeNKQ==}
@@ -1924,6 +1921,7 @@ packages:
     dependencies:
       '@vue/compiler-dom': 3.3.2
       '@vue/shared': 3.3.2
+    dev: false
 
   /@vue/compiler-ssr@3.3.4:
     resolution: {integrity: sha512-m0v6oKpup2nMSehwA6Uuu+j+wEwcy7QmwMkVNVfrV9P2qE5KshC6RwOCq8fjGS/Eak/uNb8AaWekfiXxbBB6gQ==}
@@ -1952,6 +1950,7 @@ packages:
       '@vue/shared': 3.3.2
       estree-walker: 2.0.2
       magic-string: 0.30.0
+    dev: false
 
   /@vue/reactivity-transform@3.3.4:
     resolution: {integrity: sha512-MXgwjako4nu5WFLAjpBnCj/ieqcjE2aJBINUNQzkZQfzIZA4xn+0fV1tIYBJvvva3N3OvKGofRLvQIwEQPpaXw==}
@@ -2912,24 +2911,6 @@ packages:
       postcss-selector-parser: 6.0.13
       semver: 7.5.1
       vue-eslint-parser: 9.3.0(eslint@8.41.0)
-      xml-name-validator: 4.0.0
-    transitivePeerDependencies:
-      - supports-color
-    dev: true
-
-  /eslint-plugin-vue@9.8.0(eslint@8.2.0):
-    resolution: {integrity: sha512-E/AXwcTzunyzM83C2QqDHxepMzvI2y6x+mmeYHbVDQlKFqmKYvRrhaVixEeeG27uI44p9oKDFiyCRw4XxgtfHA==}
-    engines: {node: ^14.17.0 || >=16.0.0}
-    peerDependencies:
-      eslint: ^6.2.0 || ^7.0.0 || ^8.0.0
-    dependencies:
-      eslint: 8.2.0
-      eslint-utils: 3.0.0(eslint@8.2.0)
-      natural-compare: 1.4.0
-      nth-check: 2.1.1
-      postcss-selector-parser: 6.0.13
-      semver: 7.5.1
-      vue-eslint-parser: 9.3.0(eslint@8.2.0)
       xml-name-validator: 4.0.0
     transitivePeerDependencies:
       - supports-color
@@ -5546,24 +5527,6 @@ packages:
     dependencies:
       vue: 3.2.45
     dev: false
-
-  /vue-eslint-parser@9.3.0(eslint@8.2.0):
-    resolution: {integrity: sha512-48IxT9d0+wArT1+3wNIy0tascRoywqSUe2E1YalIC1L8jsUGe5aJQItWfRok7DVFGz3UYvzEI7n5wiTXsCMAcQ==}
-    engines: {node: ^14.17.0 || >=16.0.0}
-    peerDependencies:
-      eslint: '>=6.0.0'
-    dependencies:
-      debug: 4.3.4
-      eslint: 8.2.0
-      eslint-scope: 7.2.0
-      eslint-visitor-keys: 3.4.1
-      espree: 9.5.2
-      esquery: 1.5.0
-      lodash: 4.17.21
-      semver: 7.5.1
-    transitivePeerDependencies:
-      - supports-color
-    dev: true
 
   /vue-eslint-parser@9.3.0(eslint@8.41.0):
     resolution: {integrity: sha512-48IxT9d0+wArT1+3wNIy0tascRoywqSUe2E1YalIC1L8jsUGe5aJQItWfRok7DVFGz3UYvzEI7n5wiTXsCMAcQ==}
