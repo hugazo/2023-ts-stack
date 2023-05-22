@@ -16,7 +16,7 @@ q-layout
           | Press me
 </template>
 
-<style lang="sass ">
+<style lang="sass">
 .my-card
   min-width: 300px
   max-width: 400px
