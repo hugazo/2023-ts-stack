@@ -1,9 +1,13 @@
 module.exports = {
   extends: '../../.eslintrc.yml',
+  parser: '@typescript-eslint/parser',
   parserOptions: {
-    parser: '@typescript-eslint/parser',
-    project: `${__dirname}/tsconfig.json`,
+    project: `${__dirname}/tsconfig.eslint.json`,
   },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts"
+  ],
   "ignorePatterns": [
     "dist",
     "node_modules",
