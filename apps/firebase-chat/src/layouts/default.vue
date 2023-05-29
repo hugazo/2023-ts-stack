@@ -11,7 +11,7 @@ import { useRouter, useRoute } from 'vue-router';
 import { getCurrentUser } from 'vuefire';
 import useAuthStore from '@store/auth';
 
-import NavBar from '@components/navBar.vue';
+import NavBar from '@components/NavBar.vue';
 
 const router = useRouter();
 const currentRoute = useRoute();
