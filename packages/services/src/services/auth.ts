@@ -13,21 +13,25 @@ import {
   signInWithEmailLink,
   // Types
   AuthProvider,
+  connectAuthEmulator,
 } from 'firebase/auth';
 import { firebaseInstance } from './firebase.js';
 
 // Auth instance
-export const getAuth = () => getFirebaseAuth(firebaseInstance);
-
-// Development logic
-if (process.env.MODE === 'development') {
-  const { connectAuthEmulator } = await import('firebase/auth');
-  const { FIREBASE_EMULATOR_HOST, FIREBASE_AUTH_PORT } = process.env;
-  const authUrl = `http://${FIREBASE_EMULATOR_HOST}:${FIREBASE_AUTH_PORT}`;
-  const auth = getAuth();
-  connectAuthEmulator(auth, authUrl);
-  // eslint-disable-next-line no-console
-  console.log('Auth Connected To Firebase Local Emulator');
+export const getAuth = () => {
+  const auth = getFirebaseAuth(firebaseInstance);
+  // TODO: Enable this
+  // Development logic
+  // if (process.env.MODE === 'development') {
+  //   const { connectAuthEmulator } = import('firebase/auth');
+  //   const { FIREBASE_EMULATOR_HOST, FIREBASE_AUTH_PORT } = process.env;
+  //   const authUrl = `http://${FIREBASE_EMULATOR_HOST}:${FIREBASE_AUTH_PORT}`;
+  //   const auth = getAuth();
+  //   connectAuthEmulator(auth, authUrl);
+  //   // eslint-disable-next-line no-console
+  //   console.log('Auth Connected To Firebase Local Emulator');
+  // }
+  return auth;
 }
 
 // Common third party logic
