@@ -1,7 +1,7 @@
 {
   "packageManager": "pnpm@8.6.0",
   "scripts": {
-    "dev:local": "pnpm run build-packages && concurrently --names 'apps,emulator' 'pnpm run run-apps' 'pnpm run run-emulator'",
+    "dev:local": "pnpm run build-packages && concurrently --names 'apps,emulator' 'pnpm run-apps' 'pnpm run-emulator'",
     "run-apps": "pnpm -r --filter='./apps/**' dev",
     "list-repo": "pnpm -r list --depth=-1",
     "build-packages": "pnpm -r --filter='./packages/**' build",
