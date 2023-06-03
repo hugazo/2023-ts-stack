@@ -11,6 +11,7 @@ Node version was fixed to v18.2.x using [NVM](https://github.com/nvm-sh/nvm#nvmr
 This monorepo is designed to be a one-for all development suite so i included a couple scripts that might help you
 
 ### Scripts
+
 `pnpm dev:local`
 Runs the build-packages script and starts the run-apps and run-emulator scripts concurrently.
 
