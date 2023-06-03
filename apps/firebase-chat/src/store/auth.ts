@@ -10,7 +10,7 @@ import {
   signOut,
   validateMagicLink,
 } from '@services/firebase/auth';
-import { error, success, info } from '@services/notifier';
+import { error, success, info } from '@/services/notifier';
 
 import { emailLoginModel, AuthCustomUser } from '@/models/auth';
 

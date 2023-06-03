@@ -10,8 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@services/firebase": "workspace:^",
     "@quasar/extras": "^1.16.4",
+    "@services/firebase": "workspace:^",
     "@vueuse/core": "^9.13.0",
     "@vueuse/router": "^9.13.0",
     "firebase": "^9.22.0",
@@ -32,7 +32,7 @@
     "prettier": "^2.8.8",
     "pug": "^3.0.2",
     "sass": "1.32.12",
-    "vite": "^4.3.8",
+    "vite": "^4.3.9",
     "vite-plugin-pages": "^0.28.0",
     "vue-tsc": "^1.6.5"
   }

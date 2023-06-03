@@ -16,13 +16,10 @@ q-layout(view="lHh Lpr lff")
 </template>
 
 <script setup lang="ts">
-import Services from '@pkgs/services';
 import { Suspense } from 'vue';
 import useThemeStore from '@store/theme';
 
 const themeStore = useThemeStore();
-
-Services();
 
 /**
  * TODO: Add transition, the out-in is throwing an error
