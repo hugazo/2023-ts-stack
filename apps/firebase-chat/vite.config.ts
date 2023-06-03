@@ -12,7 +12,6 @@ export default defineConfig({
       '@@': '/',
       '@components': '/src/components',
       '@models': '/src/models',
-      '@services': '/src/services',
       '@store': '/src/store',
     },
   },
