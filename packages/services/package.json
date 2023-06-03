@@ -1,5 +1,5 @@
 {
-  "name": "@pkgs/services",
+  "name": "@services/firebase",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
@@ -19,5 +19,9 @@
     "concurrently": "^8.0.1",
     "nodemon": "^2.0.22",
     "rimraf": "^5.0.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "firebase": "^9.22.1"
   }
 }
