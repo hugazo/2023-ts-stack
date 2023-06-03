@@ -2,7 +2,8 @@
 import { createApp } from 'vue';
 // Firebase plugin
 import { VueFire, VueFireAuth } from 'vuefire';
-import firebaseApp from '@services/firebase';
+import { initializeFirebaseApp } from '@services/firebase';
+
 // State management
 import { createPinia } from 'pinia';
 import piniaPluginPersistedState from 'pinia-plugin-persistedstate';
@@ -27,6 +28,35 @@ const app = createApp(App);
 const pinia = createPinia();
 pinia.use(piniaPluginPersistedState);
 app.use(pinia);
+// Firebase initialization
+const {
+  // FIREBASE ENV CONFIG
+  FIREBASE_API_KEY,
+  FIREBASE_AUTH_DOMAIN,
+  FIREBASE_PROJECT_ID,
+  FIREBASE_STORAGE_BUCKET,
+  FIREBASE_MESSAGING_SENDER_ID,
+  FIREBASE_APP_ID,
+  // LOCAL APPCHECK CONFIG
+  FIREBASE_RECAPTCHA_KEY,
+  MODE,
+} = import.meta.env;
+
+const firebaseConfig = {
+  apiKey: FIREBASE_API_KEY,
+  authDomain: FIREBASE_AUTH_DOMAIN,
+  projectId: FIREBASE_PROJECT_ID,
+  storageBucket: FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: FIREBASE_MESSAGING_SENDER_ID,
+  appId: FIREBASE_APP_ID,
+  firebaseRecaptchaKey: FIREBASE_RECAPTCHA_KEY,
+  mode: MODE,
+};
+
+const firebaseApp = initializeFirebaseApp(firebaseConfig);
+
+// esilnt-disable-next-line
+console.log('Firebase Initialized: ', firebaseApp);
 
 const routes = setupLayouts(generatedRoutes);
 const router = createRouter({
