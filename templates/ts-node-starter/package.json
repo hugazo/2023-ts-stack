@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "build": "tsc",
+    "test": "jest",
     "clean": "rimraf dist",
     "serve": "pnpm clean && pnpm build && node .",
     "build:dev": "tsc -w",
@@ -16,8 +17,13 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/jest": "^29.5.2",
     "concurrently": "^8.0.1",
+    "jest": "^29.5.0",
+    "jest-environment-jsdom": "^29.5.0",
     "nodemon": "^2.0.22",
-    "rimraf": "^5.0.0"
+    "rimraf": "^5.0.0",
+    "ts-jest": "^29.1.0",
+    "ts-node": "^10.9.1"
   }
 }

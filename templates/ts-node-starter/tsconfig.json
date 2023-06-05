@@ -1,11 +1,22 @@
 {
   "compilerOptions": {
-    "declaration": true,
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
-    "target": "ES2020",
+    "target": "ESNext",
     "outDir": "dist",
+    "esModuleInterop": true,
+    "composite": true,
+    "declaration": true,
+    "skipLibCheck": true,
     "sourceMap": true
   },
-  "include": ["src/**/*"],
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "package.json"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }
