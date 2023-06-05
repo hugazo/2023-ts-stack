@@ -8,5 +8,6 @@ module.exports = {
     "dist",
     "node_modules",
     ".eslintrc.cjs",
+    "jest.config.ts",
   ],
 };
