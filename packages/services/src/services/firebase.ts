@@ -1,5 +1,5 @@
 import { FirebaseApp, initializeApp } from 'firebase/app';
-import { initializeAppCheck, ReCaptchaV3Provider } from 'firebase/app-check';
+import { initializeAppCheck, AppCheck, ReCaptchaV3Provider } from 'firebase/app-check';
 
 declare global {
   interface Window {
@@ -16,26 +16,53 @@ export type FirebaseInitConfig = {
   MODE?: string,
   firebaseRecaptchaKey: string,
   firebaseAppCheckDebugToken?: string,
-}
+};
 
-export type FirebaseInstanceStatus = FirebaseApp | null;
-
-export let firebaseInstance: FirebaseInstanceStatus = null;
+let firebaseInstance: FirebaseApp;
+let appCheckInstance: AppCheck;
 
 export const initializeFirebaseApp = (firebaseConfig: FirebaseInitConfig): FirebaseApp => {
+  // Check optional Firebase Appcheck Debug Token in Development Mode
+  const {
+    MODE,
+    firebaseAppCheckDebugToken,
+  } = firebaseConfig;
+  if (MODE === 'development') {
+    if (!firebaseAppCheckDebugToken) {
+      throw new Error('Firebase Appcheck Debug Token is required in development mode');
+    }
+    // eslint-disable-next-line no-console
+    console.log('Firebase App Initialized with Appcheck Debug Token From Firebase Service Library');
+    // eslint-disable-next-line no-restricted-globals
+    self.FIREBASE_APPCHECK_DEBUG_TOKEN = firebaseAppCheckDebugToken;
+  }
+  // Checks if required Firebase config is provided
+  const {
+    apiKey,
+    authDomain,
+    projectId,
+    storageBucket,
+    messagingSenderId,
+    appId,
+    firebaseRecaptchaKey,
+  } = firebaseConfig;
+  if (
+    !apiKey
+    || !authDomain
+    || !projectId
+    || !storageBucket
+    || !messagingSenderId
+    || !appId
+    || !firebaseRecaptchaKey
+  ) {
+    throw new Error('Missing required Firebase config');
+  }
   try {
-    // Gets Values
-    const {
-      apiKey,
-      authDomain,
-      projectId,
-      storageBucket,
-      messagingSenderId,
-      appId,
-      MODE,
-      firebaseRecaptchaKey,
-      firebaseAppCheckDebugToken,
-    } = firebaseConfig;
+    // Checks required Firebase config
+    // Returns Firebase App if already initialized
+    if (firebaseInstance) {
+      return firebaseInstance;
+    }
     // Initializes Firebase App
     const instance = initializeApp({
       apiKey,
@@ -46,27 +73,33 @@ export const initializeFirebaseApp = (firebaseConfig: FirebaseInitConfig): Fireb
       appId,
     });
     // Initializes Firebase Appcheck
-    initializeAppCheck(instance, {
+    const appCheck = initializeAppCheck(instance, {
       provider: new ReCaptchaV3Provider(firebaseRecaptchaKey),
       isTokenAutoRefreshEnabled: true,
     });
-    // Initializes Firebase Appcheck Debug Token in Development Mode
-    if (MODE === 'development') {
-      if (!firebaseAppCheckDebugToken) {
-        throw new Error('Firebase Appcheck Debug Token is required in development mode');
-      }
-      // eslint-disable-next-line no-console
-      console.log('Firebase App Initialized with Appcheck Debug Token From Firebase Service Library');
-      self.FIREBASE_APPCHECK_DEBUG_TOKEN = firebaseAppCheckDebugToken;
-    }
+    appCheckInstance = appCheck;
     firebaseInstance = instance;
     return instance;
-  } catch (e) {
+  } catch (e) {
     throw new Error('Error initializing firebase app');
   }
-}
+};
+
+export const getFirebaseInstance = (): FirebaseApp => {
+  if (!firebaseInstance) {
+    throw new Error('Firebase app is not initialized');
+  }
+  return firebaseInstance;
+};
+
+export const getAppCheckInstance = (): AppCheck => {
+  if (!appCheckInstance) {
+    throw new Error('Firebase appcheck is not initialized');
+  }
+  return appCheckInstance;
+};
 
 export default {
   initializeFirebaseApp,
-  firebaseInstance,
+  getFirebaseInstance,
 };

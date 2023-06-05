@@ -1,8 +1,8 @@
-import { firebaseInstance, initializeFirebaseApp } from './services/firebase.js';
+import { getFirebaseInstance, initializeFirebaseApp } from './services/firebase.js';
 
-export { firebaseInstance, initializeFirebaseApp };
+export { getFirebaseInstance, initializeFirebaseApp };
 
 export default {
-    firebaseInstance,
-    initializeFirebaseApp,
+  getFirebaseInstance,
+  initializeFirebaseApp,
 };
