@@ -7,6 +7,7 @@
     "sourceMap": true,
     "esModuleInterop": true,
     "composite": true,
+    "skipLibCheck": true,
     "declaration": true
   },
   "include": [

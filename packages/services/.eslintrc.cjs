@@ -7,6 +7,9 @@ module.exports = {
   "include": [
     "src/**/*.ts",
     "src/**/*.d.ts",
+    "test/**/*.ts",
+    ".eslintrc.cjs",
+    "jest.config.js"
   ],
   "ignorePatterns": [
     "dist",
