@@ -13,31 +13,59 @@ import {
   signInWithEmailLink,
   // Types
   AuthProvider,
+  Auth,
   connectAuthEmulator,
 } from 'firebase/auth';
-import { firebaseInstance } from './firebase.js';
+import { getFirebaseInstance } from './firebase.js';
+
+export type AuthInitializationSettings = {
+  MODE?: string;
+  FIREBASE_EMULATOR_HOST?: string;
+  FIREBASE_AUTH_PORT?: string;
+};
+
+let authInstance: Auth;
+
+// initialize auth instance
+export const initializeAuthInstance = (settings: AuthInitializationSettings) => {
+  // Checks if Firebase app is initialized
+  const firebaseInstance = getFirebaseInstance();
+  if (!firebaseInstance) {
+    throw new Error('Firebase app is not initialized');
+  }
+  // Connects to Firebase Auth emulator if in development mode
+  const auth = getFirebaseAuth(firebaseInstance);
+  authInstance = auth;
+  if (settings.MODE === 'development') {
+    const { FIREBASE_EMULATOR_HOST, FIREBASE_AUTH_PORT } = settings;
+    if (!FIREBASE_EMULATOR_HOST || !FIREBASE_AUTH_PORT) {
+      throw new Error('Missing required Firebase Auth emulator config');
+    }
+    const authUrl = `http://${FIREBASE_EMULATOR_HOST}:${FIREBASE_AUTH_PORT}`;
+    connectAuthEmulator(auth, authUrl);
+    // eslint-disable-next-line no-console
+    console.log('Auth Connected To Firebase Local Emulator');
+  }
+  return auth;
+};
+
+// Helper function to check if auth instance is initialized
+const checkAuthInstance = () => {
+  if (!authInstance) {
+    throw new Error('Auth not initialized');
+  }
+};
 
 // Auth instance
 export const getAuth = () => {
-  const auth = getFirebaseAuth(firebaseInstance);
-  // TODO: Enable this
-  // Development logic
-  // if (process.env.MODE === 'development') {
-  //   const { connectAuthEmulator } = import('firebase/auth');
-  //   const { FIREBASE_EMULATOR_HOST, FIREBASE_AUTH_PORT } = process.env;
-  //   const authUrl = `http://${FIREBASE_EMULATOR_HOST}:${FIREBASE_AUTH_PORT}`;
-  //   const auth = getAuth();
-  //   connectAuthEmulator(auth, authUrl);
-  //   // eslint-disable-next-line no-console
-  //   console.log('Auth Connected To Firebase Local Emulator');
-  // }
-  return auth;
-}
+  checkAuthInstance();
+  return authInstance;
+};
 
 // Common third party logic
 const handleRedirectSignIn = async (provider: AuthProvider) => {
-  const auth = getAuth();
-  await signInWithRedirect(auth, provider);
+  checkAuthInstance();
+  await signInWithRedirect(authInstance, provider);
 };
 
 export const signInWithGoogle = async () => {
@@ -56,8 +84,8 @@ export const signInWithGithub = async () => {
 };
 
 export const signOut = async () => {
-  const auth = getAuth();
-  await signOutHandler(auth);
+  checkAuthInstance();
+  await signOutHandler(authInstance);
 };
 
 export const sendAuthMail = async (email: string) => {
@@ -65,19 +93,19 @@ export const sendAuthMail = async (email: string) => {
     url: window.location.href,
     handleCodeInApp: true,
   };
-  const auth = getAuth();
-  await sendSignInLinkToEmail(auth, email, settings);
+  checkAuthInstance();
+  await sendSignInLinkToEmail(authInstance, email, settings);
 };
 
 export const validateMagicLink = (emailLink: string) => {
-  const auth = getAuth();
-  const isMagicLink = isSignInWithEmailLink(auth, emailLink);
+  checkAuthInstance();
+  const isMagicLink = isSignInWithEmailLink(authInstance, emailLink);
   return isMagicLink;
 };
 
 export const signInEmail = async (email: string): Promise<void> => {
-  const auth = getAuth();
-  await signInWithEmailLink(auth, email, window.location.href);
+  checkAuthInstance();
+  await signInWithEmailLink(authInstance, email, window.location.href);
 };
 
 export default getAuth;
