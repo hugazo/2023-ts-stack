@@ -5,6 +5,7 @@
     "target": "ESNext",
     "rootDir": "src",
     "outDir": "dist",
+    "tsBuildInfoFile": "dist/tsconfig.tsbuildinfo",
     "sourceMap": true,
     "esModuleInterop": true,
     "composite": true,

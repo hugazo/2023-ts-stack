@@ -9,6 +9,7 @@
     "esModuleInterop": true,
     "composite": true,
     "skipLibCheck": true,
+    "tsBuildInfoFile":"dist/.tsbuildinfo",
     "declaration": true
   },
   "include": [
