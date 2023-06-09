@@ -3,20 +3,21 @@
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "target": "ESNext",
+    "rootDir": "src",
     "outDir": "dist",
+    "sourceMap": true,
     "esModuleInterop": true,
     "composite": true,
-    "declaration": true,
     "skipLibCheck": true,
-    "sourceMap": true
+    "declaration": true
   },
   "include": [
     "src/**/*.ts",
     "src/**/*.d.ts",
-    "package.json"
   ],
   "exclude": [
     "node_modules",
-    "dist"
+    "dist",
+    "test"
   ]
 }
