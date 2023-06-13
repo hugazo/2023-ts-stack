@@ -1,10 +1,10 @@
 {
   "packageManager": "pnpm@8.6.0",
   "scripts": {
-    "dev:local": "pnpm run build-packages && concurrently --names 'apps,emulator' 'pnpm run-apps' 'pnpm run-emulator'",
+    "dev:local": "concurrently --names 'apps,emulator,packages' 'pnpm run-apps' 'pnpm run-emulator' 'pnpm build-packages'",
     "run-apps": "pnpm -r --filter='./apps/**' dev",
     "list-repo": "pnpm -r list --depth=-1",
-    "build-packages": "pnpm -r --filter='./packages/**' build",
+    "build-packages": "pnpm -r --filter='./packages/**' build:dev",
     "run-emulator": "pnpm -r --filter='./firebase' dev"
   },
   "devDependencies": {
