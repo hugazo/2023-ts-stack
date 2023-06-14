@@ -1,6 +1,7 @@
 {
   "name": "nuxt-app",
   "private": true,
+  "type": "module",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev -o",
@@ -17,5 +18,8 @@
     "jsdom": "^22.0.0",
     "nuxt": "^3.5.2",
     "vitest": "^0.31.1"
+  },
+  "dependencies": {
+    "@services/firebase": "workspace:^"
   }
 }
