@@ -2,20 +2,18 @@
   "name": "@services/firebase",
   "version": "1.0.0",
   "type": "module",
-  "files": [
-    "./dist"
-  ],
   "exports": {
     ".": "./dist/index.js",
-    "./auth": "./dist/services/auth.js"
+    "./package.json": "./package.json",
+    "./auth": "./dist/services/auth.js",
+    "./init": "./dist/services/firebase.js"
   },
-  "main": "./dist/index.js",
   "scripts": {
     "build": "tsc",
     "test": "jest",
     "clean": "rimraf dist",
     "serve": "pnpm clean && pnpm build && node .",
-    "build:dev": "tsc -w",
+    "build:dev": "tsc --build --verbose --watch",
     "serve:dev": "nodemon -q",
     "dev": "concurrently \"pnpm:build:dev\" \"pnpm:serve:dev\""
   },
