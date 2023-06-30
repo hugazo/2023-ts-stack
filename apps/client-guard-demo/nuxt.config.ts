@@ -15,4 +15,7 @@ export default defineNuxtConfig({
       appCheckDebugToken: process.env.FIREBASE_APPCHECK_DEBUG_TOKEN,
     },
   },
-})
+  modules: [
+    '@nuxtjs/eslint-module',
+  ],
+});

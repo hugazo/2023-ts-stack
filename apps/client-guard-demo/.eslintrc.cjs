@@ -5,10 +5,12 @@ module.exports = {
   parser: 'vue-eslint-parser',
   parserOptions: {
     parser: '@typescript-eslint/parser',
-    project: `${__dirname}/tsconfig.eslint.json`,
+    project: `${__dirname}/tsconfig.json`,
     extraFileExtensions: ['.vue'],
   },
+  includes: [
+    '**/*.vue',
+    '**/*.ts',
+    '**/*.cjs',
+  ],
 };
-
-// TODO:
-// - Parse auto imports from nuxt
