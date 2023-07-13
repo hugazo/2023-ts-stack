@@ -1,5 +1,6 @@
 module.exports = {
   extends: [
+    '@nuxtjs/eslint-config-typescript',
     '../../.eslintrc.cjs',
   ],
   parser: 'vue-eslint-parser',
@@ -8,10 +9,4 @@ module.exports = {
     project: `${__dirname}/tsconfig.json`,
     extraFileExtensions: ['.vue'],
   },
-  // include: [
-  //   '**/*.vue',
-  //   '**/*.ts',
-  //   '**/*.cjs',
-  //   '.eslintrc.cjs',
-  // ],
 };

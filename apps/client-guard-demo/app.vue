@@ -5,11 +5,14 @@
 </template>
 
 <script setup lang="ts">
-import { initializeFirebaseApp, FirebaseInitConfig } from '@services/firebase/init';
+import type { FirebaseInitConfig } from '@services/firebase';
+import { initializeFirebaseApp } from '@services/firebase';
 
 const config = useRuntimeConfig();
 
-const firebaseApp = initializeFirebaseApp(config.public as FirebaseInitConfig);
+const publicConfig: FirebaseInitConfig = config.public;
+
+const firebaseApp = initializeFirebaseApp(publicConfig);
 
 console.log(firebaseApp);
 </script>
