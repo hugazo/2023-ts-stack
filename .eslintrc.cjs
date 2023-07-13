@@ -32,4 +32,16 @@ module.exports = {
       },
     },
   },
+  // This rule disables the import/no-extraneous-dependencies rule for build and test files
+  overrides: [
+    {
+      files: [
+        '**/rollup.config.mjs',
+        '**/test/**/*.ts',
+      ],
+      rules: {
+        'import/no-extraneous-dependencies': 'off',
+      },
+    },
+  ],
 };
