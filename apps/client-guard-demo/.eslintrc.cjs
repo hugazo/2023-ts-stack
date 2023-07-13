@@ -8,9 +8,10 @@ module.exports = {
     project: `${__dirname}/tsconfig.json`,
     extraFileExtensions: ['.vue'],
   },
-  includes: [
-    '**/*.vue',
-    '**/*.ts',
-    '**/*.cjs',
-  ],
+  // include: [
+  //   '**/*.vue',
+  //   '**/*.ts',
+  //   '**/*.cjs',
+  //   '.eslintrc.cjs',
+  // ],
 };
