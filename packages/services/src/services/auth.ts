@@ -107,5 +107,3 @@ export const signInEmail = async (email: string): Promise<void> => {
   checkAuthInstance();
   await signInWithEmailLink(authInstance, email, window.location.href);
 };
-
-export default getAuth;

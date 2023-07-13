@@ -1,14 +1,15 @@
 {
   "compilerOptions": {
-    "module": "NodeNext",
+    "module": "ESNext",
     "moduleResolution": "NodeNext",
     "target": "ESNext",
     "rootDir": "src",
     "outDir": "dist",
     "tsBuildInfoFile": "dist/tsconfig.tsbuildinfo",
+    "incremental": true,
     "sourceMap": true,
     "esModuleInterop": true,
-    "composite": true,
+    "isolatedModules": true,
     "skipLibCheck": true,
     "declaration": true
   },

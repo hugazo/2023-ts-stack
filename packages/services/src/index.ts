@@ -1,8 +1,5 @@
-import { getFirebaseInstance, initializeFirebaseApp } from './services/firebase.js';
+export * from './services/firebase.js';
 
-export { getFirebaseInstance, initializeFirebaseApp };
+export * from './services/auth.js';
 
-export default {
-  getFirebaseInstance,
-  initializeFirebaseApp,
-};
+console.log('index.ts');

@@ -98,8 +98,3 @@ export const getAppCheckInstance = (): AppCheck => {
   }
   return appCheckInstance;
 };
-
-export default {
-  initializeFirebaseApp,
-  getFirebaseInstance,
-};

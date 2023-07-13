@@ -1,13 +1,23 @@
 module.exports = {
-  extends: '../../.eslintrc.yml',
-  parser: '@typescript-eslint/parser',
+  extends: '../../.eslintrc.cjs',
   parserOptions: {
-    project: `${__dirname}/tsconfig.eslint.json`
+    parser: '@typescript-eslint/parser',
+    project: `${__dirname}/tsconfig.eslint.json`,
   },
   ignorePatterns: [
-    "dist",
-    "node_modules",
-    ".eslintrc.cjs",
-    "jest.config.ts",
+    'dist',
+    'node_modules',
+  ],
+  // This rule disables the import/no-extraneous-dependencies rule for build and test files
+  overrides: [
+    {
+      files: [
+        'rollup.config.mjs',
+        'test/**/*.ts',
+      ],
+      rules: {
+        'import/no-extraneous-dependencies': 'off',
+      },
+    },
   ],
 };

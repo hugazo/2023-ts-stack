@@ -4,6 +4,8 @@
     "test/**/*.ts",
     "src/**/*.ts",
     "src/**/*.d.ts",
+    "rollup.config.mjs",
+    ".eslintrc.cjs",
     "package.json"
-  ],
+  ]
 }

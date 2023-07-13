@@ -18,5 +18,8 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^9.13.0",
     "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "eslint-import-resolver-typescript": "^3.5.5"
   }
 }
