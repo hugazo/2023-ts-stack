@@ -17,7 +17,7 @@
     "rebuild": "pnpm clean && pnpm build",
     "clean": "rimraf dist",
     "serve": "pnpm clean && pnpm build && node .",
-    "build:dev": "rollup -c --watch --verbose",
+    "build:dev": "rollup -c --watch",
     "serve:dev": "node .",
     "dev": "rollup -c --watch --watch.onEnd=\"pnpm serve:dev\""
   },
