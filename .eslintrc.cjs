@@ -38,6 +38,7 @@ module.exports = {
       files: [
         '**/rollup.config.mjs',
         '**/test/**/*.ts',
+        '**/*.config.ts',
       ],
       rules: {
         'import/no-extraneous-dependencies': 'off',
