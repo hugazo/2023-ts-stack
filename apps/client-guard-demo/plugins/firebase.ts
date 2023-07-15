@@ -19,8 +19,8 @@ export default defineNuxtPlugin(async (nuxtApp) => {
 
   // Set auth emulator settings if in development mode
   if (firebaseConfig.mode === 'development') {
-    // eslint-disable-next-line import/no-relative-packages
-    const firebaseEmulatorSettings = await import('../../../firebase/firebase.json');
+    // eslint-disable-next-line import/no-extraneous-dependencies
+    const firebaseEmulatorSettings = await import('local-emulator/firebase.json');
     authSettings.FIREBASE_EMULATOR_HOST = 'localhost';
     authSettings.FIREBASE_AUTH_PORT = firebaseEmulatorSettings.emulators.auth.port.toString();
   }

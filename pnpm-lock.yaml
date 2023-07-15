@@ -130,6 +130,9 @@ importers:
       jsdom:
         specifier: ^22.1.0
         version: 22.1.0
+      local-emulator:
+        specifier: workspace:^
+        version: link:../../firebase
       nuxt:
         specifier: ^3.6.3
         version: 3.6.3(@types/node@20.4.2)(eslint@8.45.0)(typescript@5.1.6)
