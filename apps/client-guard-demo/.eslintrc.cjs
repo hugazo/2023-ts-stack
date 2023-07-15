@@ -1,6 +1,7 @@
 module.exports = {
   extends: [
     '@nuxtjs/eslint-config-typescript',
+    'plugin:vue-pug/vue3-essential',
     '../../.eslintrc.cjs',
   ],
   parser: 'vue-eslint-parser',
