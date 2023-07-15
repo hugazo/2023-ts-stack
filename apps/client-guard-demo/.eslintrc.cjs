@@ -7,7 +7,8 @@ module.exports = {
   parser: 'vue-eslint-parser',
   parserOptions: {
     parser: '@typescript-eslint/parser',
-    project: `${__dirname}/tsconfig.json`,
+    // eslint-disable-next-line n/no-path-concat
+    project: `${__dirname}/tsconfig.eslint.json`,
     extraFileExtensions: ['.vue'],
   },
 };
