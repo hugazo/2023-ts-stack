@@ -42,6 +42,7 @@ module.exports = {
       ],
       rules: {
         'import/no-extraneous-dependencies': 'off',
+        'vue/multi-word-component-names': 0
       },
     },
   ],
