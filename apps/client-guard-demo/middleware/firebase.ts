@@ -1,12 +1,6 @@
-import type { FirebaseInitConfig } from '@services/firebase';
-import { initializeFirebaseApp } from '@services/firebase';
-import { useRuntimeConfig } from '#imports';
+import { getAuth } from '@services/firebase';
 
-export default defineNuxtRouteMiddleware(() => {
-  const { public: firebaseConfig } = useRuntimeConfig();
-
-  const firebaseApp = initializeFirebaseApp(firebaseConfig as FirebaseInitConfig);
-
+export default defineNuxtRouteMiddleware(async () => {
   // eslint-disable-next-line no-console
-  console.log('Firebase App Initialized', firebaseApp);
+  console.log('auth initialized in plugin', getAuth());
 });
