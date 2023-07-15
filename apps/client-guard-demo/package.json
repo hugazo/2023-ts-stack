@@ -17,9 +17,12 @@
     "@vue/test-utils": "^2.4.0",
     "jsdom": "^22.1.0",
     "nuxt": "^3.6.2",
+    "nuxt-quasar-ui": "^2.0.4",
     "vitest": "^0.31.4"
   },
   "dependencies": {
-    "@services/firebase": "workspace:^"
+    "@quasar/extras": "^1.16.5",
+    "@services/firebase": "workspace:^",
+    "quasar": "^2.12.2"
   }
 }
