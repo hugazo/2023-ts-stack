@@ -127,6 +127,9 @@ importers:
       nuxt-quasar-ui:
         specifier: ^2.0.4
         version: 2.0.4(@quasar/extras@1.16.5)(quasar@2.12.2)
+      pug:
+        specifier: ^3.0.2
+        version: 3.0.2
       vitest:
         specifier: ^0.31.4
         version: 0.31.4(jsdom@22.1.0)(sass@1.32.12)
