@@ -25,8 +25,10 @@ export default defineNuxtPlugin(async (nuxtApp) => {
     authSettings.FIREBASE_AUTH_PORT = firebaseEmulatorSettings.emulators.auth.port.toString();
   }
 
+  // Initializes auth for the app
   initializeAuthInstance(authSettings);
 
+  // Initialize VueFire with Auth module for composables
   nuxtApp.vueApp.use(VueFire, {
     firebaseApp,
     modules: [

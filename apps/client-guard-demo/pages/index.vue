@@ -1,7 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template lang="pug">
 div
-  p Hi i am the index page
   template(v-if="currentUser")
     q-btn(
       label="Sign Out"
