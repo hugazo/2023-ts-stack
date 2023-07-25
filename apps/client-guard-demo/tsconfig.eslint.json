@@ -12,6 +12,7 @@
     "pages/**/*.vue",
     "plugins/**/*.ts",
     "test/**/*.ts",
+    "app.vue",
     "nuxt.config.ts",
     ".eslintrc.cjs"
   ]
