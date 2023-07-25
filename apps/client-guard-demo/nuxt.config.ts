@@ -18,5 +18,10 @@ export default defineNuxtConfig({
   modules: [
     'nuxt-quasar-ui',
   ],
-  quasar: {},
+  quasar: {
+    iconSet: 'mdi-v5',
+    extras: {
+      fontIcons: ['mdi-v5'],
+    },
+  },
 });
