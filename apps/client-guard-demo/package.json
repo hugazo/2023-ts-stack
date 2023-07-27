@@ -26,6 +26,7 @@
   "dependencies": {
     "@quasar/extras": "^1.16.5",
     "@services/firebase": "workspace:^",
+    "@vueuse/core": "^9.13.0",
     "firebase": "^9.23.0",
     "quasar": "^2.12.2",
     "vuefire": "^3.1.3"
