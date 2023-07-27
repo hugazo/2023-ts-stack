@@ -17,6 +17,7 @@ q-card(flat bordered rounded)
       )
       q-btn(
         v-if="promptForEmail"
+        :loading="loading"
         type="submit"
         label="Confirm email for login"
         outline
@@ -24,6 +25,7 @@ q-card(flat bordered rounded)
       )
       q-btn(
         v-else
+        :loading="loading"
         type="submit"
         label="Send Magic Link"
         outline
@@ -65,13 +67,22 @@ import {
   signInWithMicrosoft,
   signInWithGithub,
   signInPromptedEmail,
-  cleanEmailPrompt,
+  getEmailPrompt,
 } from '@services/firebase';
+import { useUrlSearchParams } from '@vueuse/core';
 import { ref } from '#imports';
 
 const email = ref('');
 const loading = ref(false);
-const promptForEmail = ref(Boolean(window.localStorage.getItem('promptForEmail')));
+const promptForEmail = ref(getEmailPrompt());
+
+const params = useUrlSearchParams('history');
+
+const clearForm = () => {
+  promptForEmail.value = false;
+  email.value = '';
+  loading.value = false;
+};
 
 const handleLoginSubmit = async () => {
   loading.value = true;
@@ -82,13 +93,16 @@ const handleLoginSubmit = async () => {
       await sendAuthMail(email.value);
     }
   } catch (e) {
-    cleanEmailPrompt();
-    promptForEmail.value = false;
-    email.value = '';
+    Object.keys(params).forEach((key) => {
+      if (key !== 'appReferer') {
+        delete params[key];
+      }
+    });
   } finally {
-    loading.value = false;
+    clearForm();
   }
 };
+
 </script>
 
 <style lang="sass" scoped>
