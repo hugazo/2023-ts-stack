@@ -121,10 +121,10 @@ export const processMagicLinks = async (emailLink: string) => {
 export const signInPromptedEmail = async (email: string) => {
   checkAuthInstance();
   const isMagicLink = isSignInWithEmailLink(authInstance, window.location.href);
+  window.localStorage.removeItem('promptForEmail');
   if (isMagicLink) {
     await signInWithEmailLink(authInstance, email, window.location.href);
   } else {
-    window.localStorage.removeItem('promptForEmail');
     throw new Error('Invalid Email Link');
   }
 };
