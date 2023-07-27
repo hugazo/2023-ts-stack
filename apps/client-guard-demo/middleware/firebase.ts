@@ -1,7 +1,7 @@
 import { processMagicLinks } from '@services/firebase';
 import { getCurrentUser } from 'vuefire';
 
-export default defineNuxtRouteMiddleware(async (to, from) => {
+export default defineNuxtRouteMiddleware(async () => {
   // Checks if the link is a magic link
   processMagicLinks();
 
