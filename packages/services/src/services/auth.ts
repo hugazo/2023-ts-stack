@@ -6,6 +6,7 @@ import {
   GoogleAuthProvider,
   FacebookAuthProvider,
   GithubAuthProvider,
+  OAuthProvider,
   signOut as signOutHandler,
   // Email Link
   sendSignInLinkToEmail,
@@ -83,7 +84,12 @@ export const signInWithGithub = async () => {
   await handleRedirectSignIn(provider);
 };
 
-export const signOut = async () => {
+export const signInWithMicrosoft = async () => {
+  const provider = new OAuthProvider('microsoft.com');
+  await handleRedirectSignIn(provider);
+};
+
+export const signOut = async (): Promise<void> => {
   checkAuthInstance();
   await signOutHandler(authInstance);
 };
@@ -95,15 +101,30 @@ export const sendAuthMail = async (email: string) => {
   };
   checkAuthInstance();
   await sendSignInLinkToEmail(authInstance, email, settings);
+  window.localStorage.setItem('emailForSignIn', email);
 };
 
-export const validateMagicLink = (emailLink: string) => {
+export const processMagicLinks = async (emailLink: string) => {
   checkAuthInstance();
   const isMagicLink = isSignInWithEmailLink(authInstance, emailLink);
-  return isMagicLink;
+  if (isMagicLink) {
+    const email = window.localStorage.getItem('emailForSignIn');
+    if (email) {
+      await signInWithEmailLink(authInstance, email, emailLink);
+    } else {
+      window.localStorage.setItem('promptForEmail', 'true');
+    }
+    window.localStorage.removeItem('emailForSignIn');
+  }
 };
 
-export const signInEmail = async (email: string): Promise<void> => {
+export const signInPromptedEmail = async (email: string) => {
   checkAuthInstance();
-  await signInWithEmailLink(authInstance, email, window.location.href);
+  const isMagicLink = isSignInWithEmailLink(authInstance, window.location.href);
+  if (isMagicLink) {
+    await signInWithEmailLink(authInstance, email, window.location.href);
+  } else {
+    window.localStorage.removeItem('promptForEmail');
+    throw new Error('Invalid Email Link');
+  }
 };
