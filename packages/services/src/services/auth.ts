@@ -128,3 +128,7 @@ export const signInPromptedEmail = async (email: string) => {
     throw new Error('Invalid Email Link');
   }
 };
+
+export const cleanEmailPrompt = () => {
+  window.localStorage.removeItem('promptForEmail');
+};

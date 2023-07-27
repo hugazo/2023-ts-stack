@@ -65,6 +65,7 @@ import {
   signInWithMicrosoft,
   signInWithGithub,
   signInPromptedEmail,
+  cleanEmailPrompt,
 } from '@services/firebase';
 import { ref } from '#imports';
 
@@ -74,12 +75,19 @@ const promptForEmail = ref(Boolean(window.localStorage.getItem('promptForEmail')
 
 const handleLoginSubmit = async () => {
   loading.value = true;
-  if (promptForEmail.value) {
-    await signInPromptedEmail(email.value);
-  } else {
-    await sendAuthMail(email.value);
+  try {
+    if (promptForEmail.value) {
+      await signInPromptedEmail(email.value);
+    } else {
+      await sendAuthMail(email.value);
+    }
+  } catch (e) {
+    cleanEmailPrompt();
+    promptForEmail.value = false;
+    email.value = '';
+  } finally {
+    loading.value = false;
   }
-  loading.value = false;
 };
 </script>
 
