@@ -3,6 +3,6 @@
   "exclude": [
     "lib",
     "dist",
-    "/.eslintrc.js",
+    "/.eslintrc.cjs",
   ]
 }

@@ -4,7 +4,7 @@
   "main": "dist/index.js",
   "type": "module",
   "scripts": {
-    "dev": "firebase emulators:start --only firestore,auth --import .firebase --export-on-exit --project local-emulator",
+    "dev": "firebase emulators:start --only firestore,auth --import .firebase --export-on-exit .firebase",
     "deploy": "firebase deploy --only firestore,auth",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,6 +12,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "firebase": "^9.17.1"
+    "firebase": "^9.23.0"
   }
 }

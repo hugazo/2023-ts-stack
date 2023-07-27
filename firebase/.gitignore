@@ -3,3 +3,5 @@ ui-debug.log
 dist
 node_modules
 .firebaserc
+*.log
+firebase-export*

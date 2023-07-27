@@ -1,0 +1,33 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev -o",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "test": "vitest",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "@nuxt/test-utils": "^3.6.2",
+    "@types/node": "^20.4.2",
+    "@vitejs/plugin-vue": "^4.2.3",
+    "@vue/language-plugin-pug": "^1.8.5",
+    "@vue/test-utils": "^2.4.0",
+    "eslint-plugin-vue-pug": "^0.6.0",
+    "jsdom": "^22.1.0",
+    "local-emulator": "workspace:^",
+    "nuxt": "^3.6.3",
+    "nuxt-quasar-ui": "^2.0.4",
+    "pug": "^3.0.2",
+    "vitest": "^0.31.4"
+  },
+  "dependencies": {
+    "@quasar/extras": "^1.16.5",
+    "@services/firebase": "workspace:^",
+    "firebase": "^9.23.0",
+    "quasar": "^2.12.2",
+    "vuefire": "^3.1.3"
+  }
+}
