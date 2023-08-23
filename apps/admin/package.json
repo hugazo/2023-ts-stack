@@ -1,5 +1,5 @@
 {
-  "name": "auth",
+  "name": "admin",
   "private": true,
   "scripts": {
     "build": "nuxt build",
