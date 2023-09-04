@@ -23,9 +23,9 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
   ],
   quasar: {
-    iconSet: 'mdi-v5',
+    iconSet: 'mdi-v7',
     extras: {
-      fontIcons: ['mdi-v5'],
+      fontIcons: ['mdi-v7'],
     },
   },
 });

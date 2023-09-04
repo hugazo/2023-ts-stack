@@ -25,6 +25,7 @@ q-card(flat bordered rounded)
       )
       q-btn(
         v-else
+        icon="mdi-auto-fix"
         :loading="loading"
         type="submit"
         label="Send Magic Link"
