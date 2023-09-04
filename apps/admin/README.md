@@ -1,11 +1,6 @@
-# Nuxt 3 Auth App
+# Nuxt 3 Admin App
 
-SSO App with Nuxt 3 and Firebase. This is a demo app to show how to use Firebase with Nuxt 3 and how to use Firebase Authentication for a domain driven app.
-
-- Nuxt as the Framework: [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
-- Custom Plugins for Loading Firebase
-- Firebase for Authentication and Firestore
-- Typescript Based
+This app is meant for a Firebase project. It is a simple app meant to handle administrative tasks for an organization.
 
 ## Setup
 
