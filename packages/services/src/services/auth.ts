@@ -57,6 +57,15 @@ const checkAuthInstance = () => {
   }
 };
 
+// Email prompt helpers
+const cleanEmailPrompt = () => {
+  window.localStorage.removeItem('promptForEmail');
+};
+export const getEmailPrompt = () => {
+  const promptForEmail = window.localStorage.getItem('promptForEmail');
+  return promptForEmail === 'true';
+};
+
 // Auth instance
 export const getAuth = () => {
   checkAuthInstance();
@@ -104,13 +113,14 @@ export const sendAuthMail = async (email: string) => {
   window.localStorage.setItem('emailForSignIn', email);
 };
 
-export const processMagicLinks = async (emailLink: string) => {
+export const processMagicLinks = async () => {
   checkAuthInstance();
-  const isMagicLink = isSignInWithEmailLink(authInstance, emailLink);
+  const location = window.location.href;
+  const isMagicLink = isSignInWithEmailLink(authInstance, location);
   if (isMagicLink) {
     const email = window.localStorage.getItem('emailForSignIn');
     if (email) {
-      await signInWithEmailLink(authInstance, email, emailLink);
+      await signInWithEmailLink(authInstance, email, location);
     } else {
       window.localStorage.setItem('promptForEmail', 'true');
     }
@@ -119,12 +129,18 @@ export const processMagicLinks = async (emailLink: string) => {
 };
 
 export const signInPromptedEmail = async (email: string) => {
-  checkAuthInstance();
-  const isMagicLink = isSignInWithEmailLink(authInstance, window.location.href);
-  if (isMagicLink) {
-    await signInWithEmailLink(authInstance, email, window.location.href);
-  } else {
+  try {
+    checkAuthInstance();
+    const isMagicLink = isSignInWithEmailLink(authInstance, window.location.href);
     window.localStorage.removeItem('promptForEmail');
-    throw new Error('Invalid Email Link');
+    if (isMagicLink) {
+      await signInWithEmailLink(authInstance, email, window.location.href);
+    } else {
+      throw new Error('Invalid Email Link');
+    }
+  } catch (error) {
+    console.log('Failed to Log In, should clean email prompt');
+    cleanEmailPrompt();
+    throw new Error(error);
   }
 };

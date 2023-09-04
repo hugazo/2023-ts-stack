@@ -17,6 +17,7 @@ q-card(flat bordered rounded)
       )
       q-btn(
         v-if="promptForEmail"
+        :loading="loading"
         type="submit"
         label="Confirm email for login"
         outline
@@ -24,6 +25,8 @@ q-card(flat bordered rounded)
       )
       q-btn(
         v-else
+        icon="mdi-auto-fix"
+        :loading="loading"
         type="submit"
         label="Send Magic Link"
         outline
@@ -65,22 +68,41 @@ import {
   signInWithMicrosoft,
   signInWithGithub,
   signInPromptedEmail,
+  getEmailPrompt,
 } from '@services/firebase';
-import { ref } from '#imports';
+import { ref, useUrlSearchParams } from '#imports';
 
 const email = ref('');
 const loading = ref(false);
-const promptForEmail = ref(Boolean(window.localStorage.getItem('promptForEmail')));
+const promptForEmail = ref(getEmailPrompt());
+
+const params = useUrlSearchParams('history');
+
+const clearForm = () => {
+  promptForEmail.value = false;
+  email.value = '';
+  loading.value = false;
+};
 
 const handleLoginSubmit = async () => {
   loading.value = true;
-  if (promptForEmail.value) {
-    await signInPromptedEmail(email.value);
-  } else {
-    await sendAuthMail(email.value);
+  try {
+    if (promptForEmail.value) {
+      await signInPromptedEmail(email.value);
+    } else {
+      await sendAuthMail(email.value);
+    }
+  } catch (e) {
+    Object.keys(params).forEach((key) => {
+      if (key !== 'appReferer') {
+        delete params[key];
+      }
+    });
+  } finally {
+    clearForm();
   }
-  loading.value = false;
 };
+
 </script>
 
 <style lang="sass" scoped>

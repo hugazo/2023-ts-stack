@@ -2,13 +2,12 @@ import { processMagicLinks } from '@services/firebase';
 import { getCurrentUser } from 'vuefire';
 
 export default defineNuxtRouteMiddleware(async () => {
-  const location = window.location.href;
-  // Email link login
-  processMagicLinks(location);
+  // Checks if the link is a magic link
+  processMagicLinks();
 
   // Get current user
   const user = await getCurrentUser();
-  // TODO: Redirect the user outside if it is logged in
+  // TODO: Redirect the user to referer if it is logged in
   if (user) {
     // eslint-disable-next-line no-console
     console.log('should redirect');
