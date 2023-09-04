@@ -11,4 +11,13 @@ module.exports = {
     project: `${__dirname}/tsconfig.eslint.json`,
     extraFileExtensions: ['.vue'],
   },
+  // add a rule that disables the vue/multi-word-component-names rule on the /pages directory
+  overrides: [
+    {
+      files: ['pages/**/*.vue', 'layouts/*.vue'],
+      rules: {
+        'vue/multi-word-component-names': 'off',
+      },
+    },
+  ],
 };

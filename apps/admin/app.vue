@@ -1,5 +1,6 @@
 <template lang="pug">
 q-layout
-  q-page-container
-    nuxt-page
+  nuxt-layout
+    q-page-container
+      nuxt-page
 </template>

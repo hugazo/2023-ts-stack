@@ -16,11 +16,11 @@ export default defineNuxtConfig({
       appId: process.env.FIREBASE_APP_ID,
       firebaseRecaptchaKey: process.env.FIREBASE_RECAPTCHA_KEY,
       appCheckDebugToken: process.env.FIREBASE_APPCHECK_DEBUG_TOKEN,
-      authApp: process.env.AUTH_APP,
     },
   },
   modules: [
     'nuxt-quasar-ui',
+    '@vueuse/nuxt',
   ],
   quasar: {
     iconSet: 'mdi-v5',

@@ -2,13 +2,10 @@
 <template lang="pug">
 q-page.row.justify-center.items-center
   .column
-    template(v-if="!user")
-      .row.justify-center
-        p.text-h5 Welcome - Login
-      .row
-        login-card
-    .row(v-else)
-      login-logout-test
+    p.text-h5 Welcome - Admin Site
+    p {{ user?.displayName }}
+    p {{ user?.email }}
+    logout-button
 </template>
 
 <script setup lang="ts">
@@ -19,7 +16,8 @@ const user = useCurrentUser();
 
 definePageMeta({
   middleware: [
-    'firebase',
+    'auth',
   ],
+  layout: 'default',
 });
 </script>
