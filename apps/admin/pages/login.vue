@@ -11,6 +11,9 @@ q-page.row.justify-center.items-center
 import { definePageMeta } from '#imports';
 
 definePageMeta({
+  middleware: [
+    'unauthenticated',
+  ],
   layout: 'unauthenticated',
   title: 'Login Page',
 });
