@@ -22,7 +22,7 @@ export default defineNuxtRouteMiddleware(async (to) => {
   }
   // Checks if user is an admin
   const idTokenResult = await user.getIdTokenResult();
-  if (!idTokenResult.claims.roles.includes('admin')) {
+  if (!idTokenResult.claims.roles?.includes('admin')) {
     await signOut();
     return navigateTo({
       path: '/login',
