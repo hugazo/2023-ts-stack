@@ -19,5 +19,6 @@ definePageMeta({
     'auth',
   ],
   layout: 'default',
+  title: 'Index Page',
 });
 </script>

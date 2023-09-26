@@ -12,5 +12,6 @@ import { definePageMeta } from '#imports';
 
 definePageMeta({
   layout: 'unauthenticated',
+  title: 'Login Page',
 });
 </script>
