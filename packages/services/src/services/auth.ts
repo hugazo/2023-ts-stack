@@ -1,3 +1,4 @@
+import { getCurrentUser as getCurrentFirebaseUser } from 'vuefire';
 import {
   // Auth Main Object
   getAuth as getFirebaseAuth,
@@ -16,6 +17,7 @@ import {
   AuthProvider,
   Auth,
   connectAuthEmulator,
+  User as FirebaseUser,
 } from 'firebase/auth';
 import { getFirebaseInstance } from './firebase.js';
 
@@ -70,6 +72,17 @@ export const getEmailPrompt = () => {
 export const getAuth = () => {
   checkAuthInstance();
   return authInstance;
+};
+
+// Gets the current user
+export interface User extends FirebaseUser {
+  roles?: string[];
+}
+
+export const getCurrentUser = async (): Promise<User | null> => {
+  checkAuthInstance();
+  const user = await getCurrentFirebaseUser() as User;
+  return user;
 };
 
 // Common third party logic
@@ -139,7 +152,6 @@ export const signInPromptedEmail = async (email: string) => {
       throw new Error('Invalid Email Link');
     }
   } catch (error) {
-    console.log('Failed to Log In, should clean email prompt');
     cleanEmailPrompt();
     throw new Error(error);
   }

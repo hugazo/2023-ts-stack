@@ -1,5 +1,4 @@
-import { processMagicLinks } from '@services/firebase';
-import { getCurrentUser } from 'vuefire';
+import { processMagicLinks, getCurrentUser, signOut } from '@services/firebase';
 
 /**
  * Authentication Middleware
@@ -12,7 +11,6 @@ export default defineNuxtRouteMiddleware(async (to) => {
   processMagicLinks();
   // Get current user
   const user = await getCurrentUser();
-
   // Handles redirecting to login page if user is not logged in
   if (!user) {
     return navigateTo({
@@ -22,7 +20,16 @@ export default defineNuxtRouteMiddleware(async (to) => {
       },
     });
   }
+  // Checks if user is an admin
+  const idTokenResult = await user.getIdTokenResult();
+  if (!idTokenResult.claims.roles.includes('admin')) {
+    await signOut();
+    return navigateTo({
+      path: '/login',
+      query: {
+        redirect: to.path,
+      },
+    });
+  }
   return true;
-  // TODO: check custom claims for admin access
-  // ? Or maybe just use a separate route middleware for admin access
 });
