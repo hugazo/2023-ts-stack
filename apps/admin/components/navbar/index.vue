@@ -7,15 +7,12 @@ q-header(elevated)
       :ripple="false"
       round
       dense
-      push
-      :flat="!rightDrawer"
       icon="mdi-cog"
       @click="rightDrawer = !rightDrawer"
     )
 q-drawer(
   v-model="rightDrawer"
   side="right"
-  show-if-above
   bordered
   :width="200"
   :breakpoint="500"
