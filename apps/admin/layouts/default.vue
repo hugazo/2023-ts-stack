@@ -1,6 +1,9 @@
 <template lang="pug">
-div
-  slot
+q-layout
+  Navbar
+  q-page-container
+    nuxt-page
+      slot
 </template>
 
 <script lang="ts" setup>
