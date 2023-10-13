@@ -69,6 +69,7 @@ import {
   signInWithGithub,
   signInPromptedEmail,
   getEmailPrompt,
+  cleanEmailPrompt,
 } from '@services/firebase';
 import { ref, useUrlSearchParams } from '#imports';
 
@@ -88,6 +89,7 @@ const handleLoginSubmit = async () => {
   loading.value = true;
   try {
     if (promptForEmail.value) {
+      cleanEmailPrompt();
       await signInPromptedEmail(email.value);
     } else {
       await sendAuthMail(email.value);
