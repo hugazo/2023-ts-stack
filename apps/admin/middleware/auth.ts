@@ -8,7 +8,7 @@ import { processMagicLinks, getCurrentUser, signOut } from '@services/firebase';
 // Handles authentication
 export default defineNuxtRouteMiddleware(async (to) => {
   // Process magic links at page load
-  processMagicLinks();
+  await processMagicLinks();
   // Get current user
   const user = await getCurrentUser();
   // Handles redirecting to login page if user is not logged in

@@ -60,9 +60,10 @@ const checkAuthInstance = () => {
 };
 
 // Email prompt helpers
-const cleanEmailPrompt = () => {
+export const cleanEmailPrompt = () => {
   window.localStorage.removeItem('promptForEmail');
 };
+
 export const getEmailPrompt = () => {
   const promptForEmail = window.localStorage.getItem('promptForEmail');
   return promptForEmail === 'true';
@@ -113,6 +114,7 @@ export const signInWithMicrosoft = async () => {
 
 export const signOut = async (): Promise<void> => {
   checkAuthInstance();
+  cleanEmailPrompt();
   await signOutHandler(authInstance);
 };
 
@@ -145,7 +147,7 @@ export const signInPromptedEmail = async (email: string) => {
   try {
     checkAuthInstance();
     const isMagicLink = isSignInWithEmailLink(authInstance, window.location.href);
-    window.localStorage.removeItem('promptForEmail');
+    cleanEmailPrompt();
     if (isMagicLink) {
       await signInWithEmailLink(authInstance, email, window.location.href);
     } else {

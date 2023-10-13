@@ -13,10 +13,10 @@ const router = useRouter();
 const user = useCurrentUser();
 const params = useUrlSearchParams('history');
 
-watch(user, () => {
-  if (user) {
-    if (params.redirect) {
-      router.push(params.redirect as string);
+watch(user, (newUser) => {
+  if (newUser) {
+    if (typeof params.redirect === 'string' && params.redirect) {
+      router.push(params.redirect);
     } else {
       router.push('/');
     }
