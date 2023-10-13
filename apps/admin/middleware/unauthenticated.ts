@@ -1,11 +1,10 @@
 import { getCurrentUser } from '@services/firebase';
 
-export default defineNuxtRouteMiddleware(async () => {
+export default defineNuxtRouteMiddleware(async (_to, from) => {
   const user = await getCurrentUser();
   if (user) {
-    const route = useRoute();
     return navigateTo({
-      path: `${route.query.redirect ? route.query.redirect : '/'}`,
+      path: `${from.query.redirect ? from.query.redirect : '/'}`,
     });
   }
   return true;

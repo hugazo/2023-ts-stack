@@ -1,5 +1,7 @@
 <template lang="pug">
-div
+q-layout
+  q-page-container
+    nuxt-page
   slot
 </template>
 
