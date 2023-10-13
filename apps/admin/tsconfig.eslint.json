@@ -15,6 +15,7 @@
     "test/**/*.ts",
     "app.vue",
     "nuxt.config.ts",
+    "store/**/*.ts",
     ".eslintrc.cjs"
   ]
 }

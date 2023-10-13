@@ -21,6 +21,8 @@ export default defineNuxtConfig({
   modules: [
     'nuxt-quasar-ui',
     '@vueuse/nuxt',
+    '@pinia/nuxt',
+    '@pinia-plugin-persistedstate/nuxt',
   ],
   quasar: {
     iconSet: 'mdi-v7',
