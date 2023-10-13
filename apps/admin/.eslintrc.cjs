@@ -14,7 +14,7 @@ module.exports = {
   // add a rule that disables the vue/multi-word-component-names rule on the /pages directory
   overrides: [
     {
-      files: ['pages/**/*.vue', 'layouts/*.vue'],
+      files: ['pages/**/*.vue', 'layouts/*.vue', 'components/**/*.vue'],
       rules: {
         'vue/multi-word-component-names': 'off',
       },
