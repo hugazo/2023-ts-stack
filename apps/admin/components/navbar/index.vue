@@ -3,6 +3,7 @@ q-header(elevated)
   q-toolbar
     q-btn.q-mr-sm(flat round dense icon="mdi-menu")
     q-toolbar-title Admin Site
+    navbar-theme-button.q-mr-sm
     q-btn.q-mr-sm(
       :ripple="false"
       round
