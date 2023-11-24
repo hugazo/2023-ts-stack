@@ -4,6 +4,15 @@ export default defineNuxtConfig({
   devServer: {
     port: 3001,
   },
+  // Functions
+  nitro: {
+    preset: 'firebase',
+    firebase: {
+      gen: 2,
+      nodeVersion: '20',
+      serverFunctionName: "adminFunctions",
+    },
+  },
   runtimeConfig: {
     // Firebase config for client side
     public: {

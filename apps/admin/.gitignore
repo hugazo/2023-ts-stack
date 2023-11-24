@@ -10,5 +10,4 @@ dist
 .fleet
 .idea
 .firebaserc
-firebase.json
 firebase-debug.log
